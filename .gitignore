@@ -1,25 +1,6 @@
 ### Intellij ###
 **/.idea/
-
-# CMake
-cmake-build-*/
-
-# Mongo Explorer plugin
-.idea/**/mongoSettings.xml
-
-# File-based project format
-*.iws
-
-# IntelliJ
-out/
-
-# mpeltonen/sbt-idea plugin
 **/.idea_modules/
-
-# JIRA plugin
-atlassian-ide-plugin.xml
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
@@ -32,6 +13,12 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
+
+# CMake
+cmake-build-*/
+
+# JIRA plugin
+**/atlassian-ide-plugin.xml
 
 ### macOS ###
 # General
@@ -60,5 +47,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
