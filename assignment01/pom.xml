@@ -76,7 +76,7 @@
               <descriptorRefs>
                 <descriptorRef>jar-with-dependencies</descriptorRef>
               </descriptorRefs>
-              <appendAssemblyId>true</appendAssemblyId> <!-- To remove .jar appendix -->
+              <appendAssemblyId>false</appendAssemblyId> <!-- To remove .jar appendix -->
               <archive>
                 <manifest>
                   <mainClass>cz.muni.fi.pv260.a01.Main</mainClass>
