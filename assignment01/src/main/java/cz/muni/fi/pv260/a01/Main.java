@@ -1,10 +1,7 @@
 package cz.muni.fi.pv260.a01;
 
-import com.opencsv.CSVReader;
 import org.apache.commons.cli.*;
 
-import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,13 +30,11 @@ public class Main {
         outputPath = OutputOperations.checkPathExtension(extension, outputPath);
 
 
-
         List<String []> finalCSV = OperationsCSV.FilterCSV(csv, methods);
 
 
         OutputOperations.saveResult(extension, outputPath, finalCSV);
+        System.out.println("Result successfully saved to " + outputPath);
 
     }
-
-
 }

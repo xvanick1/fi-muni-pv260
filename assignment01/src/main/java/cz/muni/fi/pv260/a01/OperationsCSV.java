@@ -9,7 +9,7 @@ public class OperationsCSV {
             filteredCSV = removeNulls(csvFile);
         }
         if (methods.contains("analytical")){
-
+            //TODO
         }
         else{
             throw new Exception("Error: Unknown method, or method input syntax."); // proč to krici?

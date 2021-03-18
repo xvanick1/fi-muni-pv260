@@ -1,7 +1,6 @@
 package cz.muni.fi.pv260.a01;
 
 import com.opencsv.CSVReader;
-import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.FileReader;
 import java.io.InputStream;
