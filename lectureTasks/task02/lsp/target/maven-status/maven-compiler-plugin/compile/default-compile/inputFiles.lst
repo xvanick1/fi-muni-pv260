@@ -1,6 +1,6 @@
-/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/PV260-SOLID/lsp/src/main/java/pv260/solid/lsp/original/CSVSerializer.java
-/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/PV260-SOLID/lsp/src/main/java/pv260/solid/lsp/original/Main.java
-/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/PV260-SOLID/lsp/src/main/java/pv260/solid/lsp/original/JSONSerializer.java
-/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/PV260-SOLID/lsp/src/main/java/pv260/solid/lsp/original/CompressingSerializer.java
-/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/PV260-SOLID/lsp/src/main/java/pv260/solid/lsp/original/TestObjectsBag.java
-/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/PV260-SOLID/lsp/src/main/java/pv260/solid/lsp/original/SimpleSerializer.java
+/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/task02/lsp/src/main/java/pv260/solid/lsp/original/SimpleSerializer.java
+/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/task02/lsp/src/main/java/pv260/solid/lsp/original/CSVSerializer.java
+/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/task02/lsp/src/main/java/pv260/solid/lsp/original/TestObjectsBag.java
+/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/task02/lsp/src/main/java/pv260/solid/lsp/original/Main.java
+/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/task02/lsp/src/main/java/pv260/solid/lsp/original/CompressingSerializer.java
+/Users/jozefvanicky/Documents/Projects/pv260/lectureTasks/task02/lsp/src/main/java/pv260/solid/lsp/original/JSONSerializer.java

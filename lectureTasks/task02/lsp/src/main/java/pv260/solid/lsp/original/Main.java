@@ -1,18 +1,18 @@
 package pv260.solid.lsp.original;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
-import static java.lang.String.format;
-import static java.util.Arrays.asList;
-import java.util.List;
 import pv260.solid.lsp.original.TestObjectsBag.BitmapPicture;
 import pv260.solid.lsp.original.TestObjectsBag.Friend;
 
+import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+import java.util.List;
+
+import static java.lang.String.format;
+import static java.util.Arrays.asList;
+
 public class Main {
 
-    /* Simpleserializer je classa z ktorej ostatne dedia. Pole polí nie je povolené - na tom to padá. Je tam niekde asi aj bug ktorý sa týka. Firnd neporušuje žiadnu podmienku, bitmap mona lisa ano.*/
     public static void main(String[] args) throws Exception {
         SimpleSerializer json = new JSONSerializer();
         SimpleSerializer csv = new CSVSerializer();
