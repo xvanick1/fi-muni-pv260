@@ -5,7 +5,6 @@ import pv260.solid.ocp.original.Comment;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 
 @SuppressWarnings("unchecked")
@@ -17,21 +16,18 @@ public class JsonPersistence {
     }
 
     public void persistJson(Comment comment) {
-        if(!Files.exists(path)){
-            final JSONObject commentDetailsJson = new JSONObject();
-            commentDetailsJson.put("author", comment.getAuthor());
-            commentDetailsJson.put("entered", comment.getEntered().toString());
-            commentDetailsJson.put("headline", comment.getHeadline());
-            commentDetailsJson.put("text", comment.getText());
+        //This implementation is done this way just for demonstration
+        //Should be changed to: if(exist) then appendNewLine, else createNewJson & appendNewLine
+        final JSONObject commentDetailsJson = new JSONObject();
+        commentDetailsJson.put("author", comment.getAuthor());
+        commentDetailsJson.put("entered", comment.getEntered().toString());
+        commentDetailsJson.put("headline", comment.getHeadline());
+        commentDetailsJson.put("text", comment.getText());
 
-            JSONObject commentJsonObject = new JSONObject();
-            commentJsonObject.put("comment", commentDetailsJson);
+        JSONObject commentJsonObject = new JSONObject();
+        commentJsonObject.put("comment", commentDetailsJson);
 
-            writeJson(commentJsonObject);
-        }
-        else {
-            //Code to edit existing JSON file.
-        }
+        writeJson(commentJsonObject);
     }
 
     private void writeJson(JSONObject commentJsonObject) {

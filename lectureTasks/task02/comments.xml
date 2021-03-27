@@ -120,4 +120,16 @@
     <headline>My comment</headline>
     <text>This is interesting...</text>
   </comment>
+  <comment>
+    <author>Pepa Zdepa</author>
+    <entered>1616884255203</entered>
+    <headline>My comment</headline>
+    <text>This is interesting...</text>
+  </comment>
+  <comment>
+    <author>Pepa Zdepa</author>
+    <entered>1616884528473</entered>
+    <headline>My comment</headline>
+    <text>This is interesting...</text>
+  </comment>
 </comments>
