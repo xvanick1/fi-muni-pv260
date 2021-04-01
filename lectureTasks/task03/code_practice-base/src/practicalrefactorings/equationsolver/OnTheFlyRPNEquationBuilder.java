@@ -22,21 +22,23 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 		}
 		else if (token.length() == 1)
 		{
+			Evaluable leftChild= null;
+			Evaluable rightChild=null;
 			OperatorNode operator = new OperatorNode(token.charAt(0));
 			checkStack(stack);
 			String nextToken=stack.pop().representation();
 			if(StringUtils.isNumeric(nextToken)){
-				NumericNode right = new NumericNode(Integer.parseInt(nextToken));
+				rightChild = new NumericNode(Integer.parseInt(nextToken));
 			}
 
 
 			checkStack(stack);
 			nextToken=stack.pop().representation();
 			if(StringUtils.isNumeric(nextToken)){
-				NumericNode left = new NumericNode(Integer.parseInt(nextToken));
+				leftChild = new NumericNode(Integer.parseInt(nextToken));
 			}
-			operator.setLeft(left);
-			operator.setRight(right);
+			operator.setLeft(leftChild);
+			operator.setRight(rightChild);
 			stack.push(operator);
 		}
 		else{
