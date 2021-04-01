@@ -9,8 +9,6 @@ public class NumericNode implements Evaluable {
 
     private int value;
     private char operator;
-    private Node left;
-    private Node right;
 
     /** Construct number node */
     public NumericNode(int value) {

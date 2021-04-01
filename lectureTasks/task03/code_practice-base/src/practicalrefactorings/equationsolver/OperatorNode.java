@@ -3,8 +3,8 @@ package practicalrefactorings.equationsolver;
 public class OperatorNode  implements Evaluable{
 
     private char operator;
-    private Node left;
-    private Node right;
+    private NumericNode left;
+    private NumericNode right;
 
     /** Construc operator node */
     public OperatorNode(char symbol) {
@@ -15,11 +15,11 @@ public class OperatorNode  implements Evaluable{
         return left != null;
     }
 
-    public void setLeft(Node left) {
+    public void setLeft(NumericNode left) {
         this.left = left;
     }
 
-    public void setRight(Node right) {
+    public void setRight(NumericNode right) {
         this.right = right;
     }
     @Override

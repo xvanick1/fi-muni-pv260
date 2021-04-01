@@ -9,32 +9,39 @@ import java.util.Stack;
 
 public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
-	private Stack<Node> stack = new Stack<>();
+	private Stack<Evaluable> stack = new Stack<>();
 
 	@Override
 	public RPNEquationBuilder push(String token) {
-		try {
-			int value = Integer.parseInt(token);
-			NumericNode number = new NumericNode(value);
-			stack.push(number);
-		} catch (NumberFormatException e) {
-			if (token.length() == 1) {
-				Node operator = new Node(token.charAt(0));
-				if (stack.isEmpty()) {
-					throw new IllegalStateException("Nothing left on the stack for operand");
+			if(token.getClass().equals(NumericNode.class)) {
+				int value = Integer.parseInt(token);
+				NumericNode number = new NumericNode(value);
+				stack.push(number);
+			}
+			else if(token.getClass().equals(OperatorNode.class))
+			{
+
+				if (token.length() == 1) {
+					OperatorNode operator = new OperatorNode(token.charAt(0));
+					if (stack.isEmpty()) {
+						throw new IllegalStateException("Nothing left on the stack for operand");
+					}
+					NumericNode right =new NumericNode( Integer.parseInt(stack.pop().representation()));
+					if (stack.isEmpty()) {
+						throw new IllegalStateException("Nothing left on the stack for operand");
+					}
+					NumericNode left = new NumericNode( Integer.parseInt(stack.pop().representation()));
+
+					operator.setLeft(left);
+					operator.setRight(right);
+					stack.push(operator);
 				}
-				Node right = stack.pop();
-				if (stack.isEmpty()) {
-					throw new IllegalStateException("Nothing left on the stack for operand");
-				}
-				Node left = stack.pop();
-				operator.setLeft(left);
-				operator.setRight(right);
-				stack.push(operator);
-			} else {
+			}
+			else{
 				throw new IllegalArgumentException("Dont understand token: " + token);
 			}
-		}
+
+
 
 		return this;
 	}
