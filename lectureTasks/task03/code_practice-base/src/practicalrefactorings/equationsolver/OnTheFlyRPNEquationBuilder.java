@@ -5,6 +5,8 @@
  */
 package practicalrefactorings.equationsolver;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Stack;
 
 public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
@@ -13,31 +15,27 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
 	@Override
 	public RPNEquationBuilder push(String token) {
-			if(token.getClass().equals(NumericNode.class)) {
-				int value = Integer.parseInt(token);
-				NumericNode number = new NumericNode(value);
-				stack.push(number);
-			}
-			else if(token.getClass().equals(OperatorNode.class))
-			{
+		if(StringUtils.isNumeric(token)) {
+			int value = Integer.parseInt(token);
+			NumericNode number = new NumericNode(value);
+			stack.push(number);
+		}
+		else if (token.length() == 1)
+		{
+			OperatorNode operator = new OperatorNode(token.charAt(0));
+			checkStack(stack);
+			NumericNode right =new NumericNode( Integer.parseInt(stack.pop().representation()));
+			checkStack(stack);
 
-				if (token.length() == 1) {
-					OperatorNode operator = new OperatorNode(token.charAt(0));
-					checkStack(stack);
-					NumericNode right =new NumericNode( Integer.parseInt(stack.pop().representation()));
-					checkStack(stack);
-					NumericNode left = new NumericNode( Integer.parseInt(stack.pop().representation()));
+			NumericNode left = new NumericNode( Integer.parseInt(stack.pop().representation()));
 
-					operator.setLeft(left);
-					operator.setRight(right);
-					stack.push(operator);
-				}
-			}
-			else{
-				throw new IllegalArgumentException("Dont understand token: " + token);
-			}
-
-
+			operator.setLeft(left);
+			operator.setRight(right);
+			stack.push(operator);
+		}
+		else{
+			throw new IllegalArgumentException("Dont understand token: " + token);
+		}
 
 		return this;
 	}
