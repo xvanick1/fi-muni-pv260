@@ -23,13 +23,9 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
 				if (token.length() == 1) {
 					OperatorNode operator = new OperatorNode(token.charAt(0));
-					if (stack.isEmpty()) {
-						throw new IllegalStateException("Nothing left on the stack for operand");
-					}
+					checkStack(stack);
 					NumericNode right =new NumericNode( Integer.parseInt(stack.pop().representation()));
-					if (stack.isEmpty()) {
-						throw new IllegalStateException("Nothing left on the stack for operand");
-					}
+					checkStack(stack);
 					NumericNode left = new NumericNode( Integer.parseInt(stack.pop().representation()));
 
 					operator.setLeft(left);
@@ -52,6 +48,12 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 			throw new IllegalStateException("More than one token left on the stack, unbalanced input.");
 		}
 		return stack.pop();
+	}
+
+	private void checkStack(Stack<Evaluable> stack){
+		if (stack.isEmpty()) {
+			throw new IllegalStateException("Nothing left on the stack.");
+		}
 	}
 
 }
