@@ -15,21 +15,16 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
 	@Override
 	public RPNEquationBuilder push(String token) {
-		if(StringUtils.isNumeric(token)){
+		if(isNumericTokenCheck(token)){
 			int value = Integer.parseInt(token);
 			NumericNode number = new NumericNode(value);
 			stack.push(number);
 
-		} else if (isOperatorCheck(token)) {
+		} else if (isOperatorTokenCheck(token)) {
 			OperatorNode operator = new OperatorNode(token.charAt(0));
-			checkStack(stack);
-			Evaluable right =stackPop(stack);
-					stack.pop();
-			checkStack(stack);
-			Evaluable left = stack.pop();
+			operator.setRight(stackPop(stack));
+			operator.setLeft(stackPop(stack));
 
-			operator.setLeft(left);
-			operator.setRight(right);
 			stack.push(operator);
 		} else {
 			throw new IllegalArgumentException("Dont understand token: " + token);
@@ -39,12 +34,18 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 		return this;
 	}
 
+	private boolean isNumericTokenCheck(String token) {
+		return StringUtils.isNumeric(token);
+	}
+
 	private Evaluable stackPop(Stack<Evaluable> stack) {
-		checkStack(stack);
+		if (stack.isEmpty()) {
+			throw new IllegalStateException("Nothing left on the stack.");
+		}
 		return stack.pop();
 	}
 
-	private boolean isOperatorCheck(String token) {
+	private boolean isOperatorTokenCheck(String token) {
 		return token.length() == 1;
 	}
 
@@ -56,10 +57,5 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 		return stack.pop();
 	}
 
-	private void checkStack(Stack<Evaluable> stack){
-		if (stack.isEmpty()) {
-			throw new IllegalStateException("Nothing left on the stack.");
-		}
-	}
 
 }
