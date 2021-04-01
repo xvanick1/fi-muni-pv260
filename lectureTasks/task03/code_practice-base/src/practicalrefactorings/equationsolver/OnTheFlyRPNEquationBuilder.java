@@ -15,35 +15,25 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
 	@Override
 	public RPNEquationBuilder push(String token) {
-		if(StringUtils.isNumeric(token)) {
+		if(StringUtils.isNumeric(token)){
 			int value = Integer.parseInt(token);
 			NumericNode number = new NumericNode(value);
 			stack.push(number);
-		}
-		else if (token.length() == 1)
-		{
-			Evaluable leftChild= null;
-			Evaluable rightChild=null;
+
+		} else if (token.length() == 1) {
 			OperatorNode operator = new OperatorNode(token.charAt(0));
 			checkStack(stack);
-			String nextToken=stack.pop().representation();
-			if(StringUtils.isNumeric(nextToken)){
-				rightChild = new NumericNode(Integer.parseInt(nextToken));
-			}
-
-
+			Evaluable right = stack.pop();
 			checkStack(stack);
-			nextToken=stack.pop().representation();
-			if(StringUtils.isNumeric(nextToken)){
-				leftChild = new NumericNode(Integer.parseInt(nextToken));
-			}
-			operator.setLeft(leftChild);
-			operator.setRight(rightChild);
+			Evaluable left = stack.pop();
+
+			operator.setLeft(left);
+			operator.setRight(right);
 			stack.push(operator);
-		}
-		else{
+		} else {
 			throw new IllegalArgumentException("Dont understand token: " + token);
 		}
+
 
 		return this;
 	}
