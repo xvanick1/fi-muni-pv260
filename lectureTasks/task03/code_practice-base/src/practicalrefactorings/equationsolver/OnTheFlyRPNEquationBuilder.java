@@ -20,10 +20,11 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 			NumericNode number = new NumericNode(value);
 			stack.push(number);
 
-		} else if (token.length() == 1) {
+		} else if (isOperatorCheck(token)) {
 			OperatorNode operator = new OperatorNode(token.charAt(0));
 			checkStack(stack);
-			Evaluable right = stack.pop();
+			Evaluable right =stackPop(stack);
+					stack.pop();
 			checkStack(stack);
 			Evaluable left = stack.pop();
 
@@ -36,6 +37,15 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
 
 		return this;
+	}
+
+	private Evaluable stackPop(Stack<Evaluable> stack) {
+		checkStack(stack);
+		return stack.pop();
+	}
+
+	private boolean isOperatorCheck(String token) {
+		return token.length() == 1;
 	}
 
 	@Override
