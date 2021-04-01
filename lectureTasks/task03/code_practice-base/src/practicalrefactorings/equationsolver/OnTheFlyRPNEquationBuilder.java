@@ -24,11 +24,17 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 		{
 			OperatorNode operator = new OperatorNode(token.charAt(0));
 			checkStack(stack);
-			NumericNode right =new NumericNode( Integer.parseInt(stack.pop().representation()));
+			String nextToken=stack.pop().representation();
+			if(StringUtils.isNumeric(nextToken)){
+				NumericNode right = new NumericNode(Integer.parseInt(nextToken));
+			}
+
+
 			checkStack(stack);
-
-			NumericNode left = new NumericNode( Integer.parseInt(stack.pop().representation()));
-
+			nextToken=stack.pop().representation();
+			if(StringUtils.isNumeric(nextToken)){
+				NumericNode left = new NumericNode(Integer.parseInt(nextToken));
+			}
 			operator.setLeft(left);
 			operator.setRight(right);
 			stack.push(operator);
