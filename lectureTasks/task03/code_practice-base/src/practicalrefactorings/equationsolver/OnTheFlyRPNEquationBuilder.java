@@ -15,7 +15,7 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 	public RPNEquationBuilder push(String token) {
 		try {
 			int value = Integer.parseInt(token);
-			Node number = new Node(value);
+			NumericNode number = new NumericNode(value);
 			stack.push(number);
 		} catch (NumberFormatException e) {
 			if (token.length() == 1) {

@@ -13,8 +13,8 @@ public class NumericNode implements Evaluable {
     private Node right;
 
     /** Construct number node */
-    public int numericNode(int value) {
-        return this.value = value;
+    public NumericNode(int value) {
+        this.value = value;
     }
 
     @Override
