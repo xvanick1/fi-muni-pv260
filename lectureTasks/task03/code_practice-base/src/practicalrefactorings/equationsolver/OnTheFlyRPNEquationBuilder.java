@@ -11,7 +11,7 @@ import java.util.Stack;
 
 public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 
-	private Stack<Evaluable> stack = new Stack<>();
+	private final Stack<Evaluable> stack = new Stack<>();
 
 	@Override
 	public RPNEquationBuilder push(String token) {
@@ -29,7 +29,6 @@ public class OnTheFlyRPNEquationBuilder implements RPNEquationBuilder {
 		} else {
 			throw new IllegalArgumentException("Dont understand token: " + token);
 		}
-
 
 		return this;
 	}
