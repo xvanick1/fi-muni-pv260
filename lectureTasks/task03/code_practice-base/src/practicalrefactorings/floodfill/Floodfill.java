@@ -14,6 +14,7 @@ import java.util.Queue;
 
 public class Floodfill {
 
+<<<<<<< HEAD
 	public Grid<Color> fillAt(Grid<Color> givenGrid, int startX, int startY, Color newColor) {
 		Position initialPosition = new Position(startX, startY);
 		givenGrid.validateIndex(startX, startY);
@@ -48,11 +49,44 @@ public class Floodfill {
 				Color colorAtPosition = clonedGrid.get(position.x(), position.y());
 				if (colorAtPosition.equals(replacingColor)) {
 					uncoloredNeighbors.add(position);
+=======
+	public Grid<Color> fillAt(Grid<Color> original, int startX, int startY, Color color) {
+		Position start = new Position(startX, startY);
+		if (start.x() >= 0 && start.x() < original.width() && start.y() >= 0 && start.y() < original.height()) {
+			Grid<Color> copy = getGridCopy(original);
+			Queue<Position> left = new LinkedList<>();
+			left.add(new Position(startX, startY));
+			Color replacingColor = original.get(startX, startY);
+			if (!replacingColor.equals(color)) {
+				while (!left.isEmpty()) {
+					Position at = left.poll();
+					if (at.x() >= 0 && at.x() < copy.width() && at.y() >= 0 && at.y() < copy.height()) {
+						copy.set(color, at.x(), at.y());
+						Collection<Position> neighbors = asList(
+								new Position(at.x() + 1, at.y()),
+								new Position(at.x(), at.y() + 1),
+								new Position(at.x() - 1, at.y()),
+								new Position(at.x(), at.y() - 1)
+						);
+						Collection<Position> uncoloredNeighbors = new ArrayList<>();
+						for (Position position : neighbors) {
+							if (position.x() >= 0 && position.x() < copy.width() && position.y() >= 0 && position.y() < copy.height()) {
+								Color colorAtPosition = copy.get(position.x(), position.y());
+								if (colorAtPosition.equals(replacingColor)) {
+									uncoloredNeighbors.add(position);
+								}
+							}
+						}
+
+						left.addAll(uncoloredNeighbors);
+					}
+>>>>>>> 6c6a317bbca01acece5129fa59a97d2236abad98
 				}
 			}
 		}
 	}
 
+<<<<<<< HEAD
 	private Boolean checkCoordinatesValidity(int x, int y, Grid grid) {
 		return x >= 0 && x < grid.width() && y >= 0 && y < grid.height();
 	}
@@ -71,6 +105,13 @@ public class Floodfill {
 		for (int x = 0; x < givenGrid.width(); x++) {
 			for (int y = 0; y < givenGrid.height(); y++) {
 				copy.set(givenGrid.get(x, y), x, y);
+=======
+	private Grid<Color> getGridCopy(Grid<Color> original) {
+		Grid<Color> copy = new ArrayBackedGrid<>(original.width(), original.height());
+		for (int x = 0; x < original.width(); x++) {
+			for (int y = 0; y < original.height(); y++) {
+				copy.set(original.get(x, y), x, y);
+>>>>>>> 6c6a317bbca01acece5129fa59a97d2236abad98
 			}
 		}
 		return copy;
