@@ -37,4 +37,11 @@ public interface Grid<T> {
 	 * */
 	void set(T item, int x, int y);
 
+	/**
+	 * Checks if the coordinates exist on the grid.
+	 * @param x coordinate x on the grid
+	 * @param y coordinate y on the grid
+	 */
+	void validateIndex(int x, int y);
+
 }

@@ -81,7 +81,8 @@ public class ArrayBackedGrid<T> implements Grid<T> {
 		}
 	}
 
-	private void validateIndex(int x, int y) {
+	@Override
+	public void validateIndex(int x, int y) {
 		if (x < 0 || x >= width()
 				|| y < 0 || y >= height()) {
 			throw new IndexOutOfBoundsException("Got index [" + x + "," + y + "] but the grid is only " + width() + "x" + height());
