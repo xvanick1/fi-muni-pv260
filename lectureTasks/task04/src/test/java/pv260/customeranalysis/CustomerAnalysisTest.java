@@ -1,11 +1,26 @@
 package pv260.customeranalysis;
 
+import static com.googlecode.catchexception.CatchException.catchException;
+
 import org.junit.Test;
+import pv260.customeranalysis.entities.Product;
+import pv260.customeranalysis.exceptions.CantUnderstandException;
 import pv260.customeranalysis.exceptions.GeneralException;
+import pv260.customeranalysis.interfaces.AnalyticalEngine;
+import pv260.customeranalysis.interfaces.ErrorHandler;
+import pv260.customeranalysis.interfaces.NewsList;
+import pv260.customeranalysis.interfaces.Storage;
+
+import java.util.Collections;
+
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.*;
+
+/**
+ * @author Jozef Vanický
+ */
 
 public class CustomerAnalysisTest {
-
-
 
     /**
      * Verify the ErrorHandler is invoked when one of the AnalyticalEngine methods
@@ -14,6 +29,19 @@ public class CustomerAnalysisTest {
      */
     @Test
     public void testErrorHandlerInvokedWhenEngineThrows() throws GeneralException {
+        ErrorHandler handler= mock(ErrorHandler.class);
+        AnalyticalEngine engine= mock(AnalyticalEngine.class);
+        Product product= mock(Product.class);
+        when(engine.interesetingCustomers(product)).thenThrow(new CantUnderstandException());
+
+        Storage storage = mock(Storage.class);
+        NewsList newsList = mock(NewsList.class);
+
+        CustomerAnalysis analysis= new CustomerAnalysis(Collections.singletonList(engine),storage, newsList,handler);
+
+        catchException(() ->analysis.findInterestingCustomers(product));
+
+        verify(handler).handle(isA(CantUnderstandException.class));
     }
 
     /**
