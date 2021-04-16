@@ -3,6 +3,10 @@ package pv260.customeranalysis;
 import static com.googlecode.catchexception.CatchException.catchException;
 
 import org.junit.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
+import pv260.customeranalysis.entities.Customer;
+import pv260.customeranalysis.entities.Offer;
 import pv260.customeranalysis.entities.Product;
 import pv260.customeranalysis.exceptions.CantUnderstandException;
 import pv260.customeranalysis.exceptions.GeneralException;
