@@ -3,6 +3,7 @@ package pv260.customeranalysis;
 import static com.googlecode.catchexception.CatchException.catchException;
 
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 import pv260.customeranalysis.entities.Customer;
@@ -16,8 +17,10 @@ import pv260.customeranalysis.interfaces.NewsList;
 import pv260.customeranalysis.interfaces.Storage;
 
 import java.util.Collections;
+import java.util.List;
 
 import static java.util.Arrays.asList;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
 
@@ -136,6 +139,29 @@ public class CustomerAnalysisTest {
      */
     @Test
     public void testOfferContainsProductAndCustomer() throws GeneralException {
+        ErrorHandler handler= mock(ErrorHandler.class);
+        AnalyticalEngine engine= mock(AnalyticalEngine.class);
+        ArgumentCaptor<Offer> captor = ArgumentCaptor.forClass(Offer.class);
+
+        Storage storage = mock(Storage.class);
+        Product product = mock(Product.class);
+        NewsList newsList = mock(NewsList.class);
+
+        Customer customer1 = mock(Customer.class);
+        Customer customer2 = mock(Customer.class);
+
+        when(product.getId()).thenReturn(5L);
+        when(engine.interesetingCustomers(product)).thenReturn( asList(customer1,customer2));
+        when(storage.find(Product.class, product.getId())).thenReturn(product);
+        CustomerAnalysis analysis = new CustomerAnalysis(Collections.singletonList(engine),storage, newsList,handler);
+
+        analysis.prepareOfferForProduct(product.getId());
+
+        verify(storage,times(2)).persist(captor.capture());
+
+        List<Offer> offersList = captor.getAllValues();
+        assertThat(offersList.get(0).equals(offersList.get(1)));
+
     }
 
 }
