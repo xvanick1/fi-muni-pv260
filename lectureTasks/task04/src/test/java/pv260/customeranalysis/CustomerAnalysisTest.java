@@ -13,6 +13,7 @@ import pv260.customeranalysis.interfaces.Storage;
 
 import java.util.Collections;
 
+import static java.util.Arrays.asList;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
 
@@ -76,6 +77,18 @@ public class CustomerAnalysisTest {
      */
     @Test
     public void testNoMoreEnginesTriedAfterOneSucceeds() throws GeneralException {
+        ErrorHandler handler= mock(ErrorHandler.class);
+        AnalyticalEngine engine1= mock(AnalyticalEngine.class);
+        AnalyticalEngine engine2= mock(AnalyticalEngine.class);
+        Product product = mock(Product.class);
+        Storage storage = mock(Storage.class);
+        NewsList newsList = mock(NewsList.class);
+
+        CustomerAnalysis analysis = new CustomerAnalysis(asList(engine1,engine2),storage, newsList,handler);
+        analysis.findInterestingCustomers(product);
+
+        verify(engine1).interesetingCustomers(product);
+        verifyZeroInteractions(engine2);
     }
 
     /**
