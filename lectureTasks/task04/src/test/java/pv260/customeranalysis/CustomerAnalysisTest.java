@@ -99,6 +99,30 @@ public class CustomerAnalysisTest {
      */
     @Test
     public void testOfferIsPersistedBeforeAddedToNewsList() throws GeneralException {
+        ErrorHandler handler= mock(ErrorHandler.class);
+        AnalyticalEngine engine= mock(AnalyticalEngine.class);
+        Offer offer = mock(Offer.class);
+        Customer customer = mock(Customer.class);
+        Storage storage = mock(Storage.class);
+        Product product = mock(Product.class);
+        NewsList newsList = mock(NewsList.class);
+
+        Customer customer1 = new Customer(5, "james", 5000);
+        Customer customer2 = new Customer(6,"john",5500);
+
+
+        CustomerAnalysis analysis = new CustomerAnalysis(Collections.singletonList(engine),storage, newsList,handler);
+
+        when(product.getId()).thenReturn(5L);
+        when(engine.interesetingCustomers(product)).thenReturn(asList(customer1,customer2));
+        when(storage.find(Product.class, product.getId())).thenReturn(product);
+
+        analysis.prepareOfferForProduct(product.getId());
+
+        InOrder inOrder = Mockito.inOrder(storage, newsList, offer);
+
+        inOrder.verify(storage).persist(any(Offer.class));
+        inOrder.verify(newsList).sendPeriodically(any(Offer.class));
     }
 
     /**
