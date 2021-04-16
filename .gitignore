@@ -50,3 +50,6 @@ Temporary Items
 
 #Temp files
 **/~$*
+**/~Snap*
+**/~javacore*
+**/~jitdump*
