@@ -18,6 +18,7 @@ import static org.mockito.Mockito.*;
 
 /**
  * @author Jozef Vanický
+ * @author Michal Zelenák
  */
 
 public class CustomerAnalysisTest {
@@ -52,6 +53,20 @@ public class CustomerAnalysisTest {
      */
     @Test
     public void testSubsequentEnginesTriedIfOneFails() throws GeneralException {
+        ErrorHandler handler= mock(ErrorHandler.class);
+        AnalyticalEngine engine1= mock(AnalyticalEngine.class);
+        AnalyticalEngine engine2= mock(AnalyticalEngine.class);
+        Product product = mock(Product.class);
+
+        Storage storage = mock(Storage.class);
+        NewsList newsList = mock(NewsList.class);
+
+        when(engine1.interesetingCustomers(product)).thenThrow(new CantUnderstandException());
+        CustomerAnalysis analysis= new CustomerAnalysis(asList(engine1,engine2),storage, newsList,handler);
+        analysis.findInterestingCustomers(product);
+
+        verify(engine1).interesetingCustomers(product);
+        verify(engine2).interesetingCustomers(product);
     }
 
     /**
