@@ -1,4 +1,4 @@
-# [PV260] - JavaEE assignment01
+# [PV260] - JavaEE assignment00
 
 Run with command: 
 > java -jar da-tool.jar -d [DATASET_LOCATION] -m [MANIPULATION_METHODS] -o [OUTPUT_TYPE] [OUTPUT_FILE]
@@ -9,4 +9,4 @@ Run with command:
 - Allowed methods: filtering,analytical;
 
 
-__For potential viewers:__ This is my first Java assignment after years. I do not recommend copying aby parts of this code.
+__For potential viewers:__ This is my first Java assignment after years. I do not recommend copying any parts of this code.
