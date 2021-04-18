@@ -105,4 +105,8 @@ public class Player {
         return false;
     }
 
+    public void addCurrentPositionsToPaths() {
+        this.addPathX(this.getxPosition());
+        this.addPathY(this.getyPosition());
+    }
 }
