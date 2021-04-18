@@ -33,13 +33,13 @@ public class Game extends Core implements KeyListener, MouseListener,
 		w.addMouseListener(this);
 		w.addMouseMotionListener(this);
 
-		createPlayer(40,40,1, Color.GREEN);
-		createPlayer(600,440,3, Color.RED);
+		createPlayer(40,40,1, Color.GREEN, new KeyBinding(KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT));
+		createPlayer(600,440,3, Color.RED, new KeyBinding(KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D));
 
 	}
 
-	private void createPlayer(int x, int y, int startDirection, Color color) {
-		players.add(new Player(x,y,startDirection, color));
+	private void createPlayer(int x, int y, int startDirection, Color color, KeyBinding keyBinding) {
+		players.add(new Player(x,y,startDirection, color, keyBinding));
 	}
 
 	public static void main(String[] args) {
@@ -171,6 +171,7 @@ public class Game extends Core implements KeyListener, MouseListener,
 				currentDirection2 = 3;
 				}
 		}
+
 	}
 
 	public void keyReleased(KeyEvent e) {

@@ -14,15 +14,19 @@ public class Player {
     private int yPosition;
     private int currentDirection;
     private Color color;
+    private KeyBinding keyBinding;
+
+
 
     ArrayList<Integer> pathX = new ArrayList();
     ArrayList<Integer> pathY = new ArrayList();
 
-    public Player(int xPosition, int yPosition, int currentDirection, Color color){
+    public Player(int xPosition, int yPosition, int currentDirection, Color color, KeyBinding keyBinding){
         setxPosition(xPosition);
         setyPosition(yPosition);
         setCurrentDirection(currentDirection);
         setColor(color);
+        setKeyBinding(keyBinding);
     }
     public ArrayList<Integer> getPathX() {
         return pathX;
@@ -62,6 +66,14 @@ public class Player {
 
     public void setCurrentDirection(int currentDirection) {
         this.currentDirection = currentDirection;
+    }
+
+    public KeyBinding getKeyBinding() {
+        return keyBinding;
+    }
+
+    public void setKeyBinding(KeyBinding keyBinding) {
+        this.keyBinding = keyBinding;
     }
 
     public Color getColor() {
