@@ -47,6 +47,10 @@ public class Game extends Core implements KeyListener, MouseListener,
 	}
 
 	public void draw(Graphics2D g) {
+		for(Player player : players){
+			player.updatePosition(moveAmount,sm);
+		}
+
 		switch(currentDirection1){
 		case 0:
 			if (centrey1>0){

@@ -63,4 +63,39 @@ public class Player {
     public void setCurrentDirection(int currentDirection) {
         this.currentDirection = currentDirection;
     }
+
+    public void updatePosition(int moveAmount, ScreenManager sm){
+        switch(this.currentDirection){
+            case 0:
+                if (this.yPosition>0){
+                    this.yPosition-=moveAmount;
+                } else {
+                    this.yPosition = sm.getHeight();
+                }
+                break;
+            case 1:
+                if (this.xPosition < sm.getWidth()){
+                    this.xPosition+=moveAmount;
+                } else {
+                    this.xPosition = 0;
+                }
+                break;
+            case 2:
+                if (this.yPosition < sm.getHeight()){
+                    this.yPosition+=moveAmount;
+                } else {
+                    this.yPosition = 0;
+                }
+                break;
+            case 3:
+                if (this.xPosition>0){
+                    this.xPosition-=moveAmount;
+                } else {
+                    this.xPosition = sm.getWidth();
+                }
+                break;
+        }
+
+    }
+
 }
