@@ -21,6 +21,24 @@ public class Player {
         setyPosition(yPosition);
         setCurrentDirection(currentDirection);
     }
+    public ArrayList<Integer> getPathX() {
+        return pathX;
+    }
+
+    public ArrayList<Integer> getPathY() {
+        return pathY;
+    }
+
+
+    public void addPathX(Integer pathX) {
+        this.pathX.add(pathX);
+    }
+
+    public void addPathY(Integer pathY) {
+        this.pathY.add(pathY);
+    }
+
+
 
     public int getxPosition() {
         return xPosition;
