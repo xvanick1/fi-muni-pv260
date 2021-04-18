@@ -119,9 +119,9 @@ public class Player {
     }
 
     public boolean collisionDetected(ArrayList<Player> players) {
-        for (Player player : players){
-            if (player.getPathX().contains(xPosition) && player.getPathY().contains(yPosition)) {
-                System.out.println("other player collision");
+        for (int i=0;i< pathX.size();i++){
+            if((pathX.get(i)==xPosition) && (pathY.get(i)==yPosition))
+            {
                 return true;
             }
         }
