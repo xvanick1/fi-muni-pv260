@@ -29,7 +29,6 @@ public class Player {
         return pathY;
     }
 
-
     public void addPathX(Integer pathX) {
         this.pathX.add(pathX);
     }
@@ -37,8 +36,6 @@ public class Player {
     public void addPathY(Integer pathY) {
         this.pathY.add(pathY);
     }
-
-
 
     public int getxPosition() {
         return xPosition;
@@ -96,6 +93,16 @@ public class Player {
                 break;
         }
 
+    }
+
+    public boolean collisionDetected(ArrayList<Player> players) {
+        for (Player player : players){
+            if (player.getPathX().contains(xPosition) && player.getPathY().contains(yPosition)) {
+                System.out.println("other player collision");
+                return true;
+            }
+        }
+        return false;
     }
 
 }

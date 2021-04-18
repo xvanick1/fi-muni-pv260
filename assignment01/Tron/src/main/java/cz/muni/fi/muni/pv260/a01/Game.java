@@ -111,6 +111,11 @@ public class Game extends Core implements KeyListener, MouseListener,
 			}
 			break;
 		}
+		for (Player player : players) {
+			if (player.collisionDetected(players)) {
+				System.exit(0);
+			}
+		}
 	    for (int x = 0;x<pathx1.size();x++){
 	    	if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x))) || ((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) || ((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) || ((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
 	    		System.exit(0);
