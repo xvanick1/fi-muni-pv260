@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class Game extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
+	ArrayList<Player> players = new ArrayList<Player>();
 	int centrex1 = 40;
 	int centrey1 = 40;
 	int centrex2 = 600;
@@ -31,6 +32,14 @@ public class Game extends Core implements KeyListener, MouseListener,
 		w.addKeyListener(this);
 		w.addMouseListener(this);
 		w.addMouseMotionListener(this);
+
+		createPlayer(40,40,1);
+		createPlayer(600,440,3);
+
+	}
+
+	private void createPlayer(int x, int y, int startDirection) {
+		players.add(new Player(x,y,startDirection));
 	}
 
 	public static void main(String[] args) {
