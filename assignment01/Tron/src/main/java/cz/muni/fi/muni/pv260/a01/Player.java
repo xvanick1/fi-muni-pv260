@@ -119,10 +119,11 @@ public class Player {
     }
 
     public boolean collisionDetected(ArrayList<Player> players) {
-        for (int i=0;i< pathX.size();i++){
-            if((pathX.get(i)==xPosition) && (pathY.get(i)==yPosition))
-            {
-                return true;
+        for(Player player:players) {
+            for (int i = 0; i < pathX.size(); i++) {
+                if ((player.getPathX().get(i) == xPosition) && (player.getPathY().get(i) == yPosition)) {
+                    return true;
+                }
             }
         }
         return false;
