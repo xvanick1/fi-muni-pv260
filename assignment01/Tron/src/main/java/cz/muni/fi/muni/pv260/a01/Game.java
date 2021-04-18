@@ -133,6 +133,8 @@ public class Game extends Core implements KeyListener, MouseListener,
 		g.fillRect(pathx1.get(x), pathy1.get(x), 10, 10);
 		g.setColor(Color.red);
 		g.fillRect(pathx2.get(x), pathy2.get(x), 10, 10);
+		for(Player player :players)
+			player.draw(g);
 		}
 	}
 
