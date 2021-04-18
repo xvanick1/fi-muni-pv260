@@ -33,13 +33,13 @@ public class Game extends Core implements KeyListener, MouseListener,
 		w.addMouseListener(this);
 		w.addMouseMotionListener(this);
 
-		createPlayer(40,40,1);
-		createPlayer(600,440,3);
+		createPlayer(40,40,1, Color.GREEN);
+		createPlayer(600,440,3, Color.RED);
 
 	}
 
-	private void createPlayer(int x, int y, int startDirection) {
-		players.add(new Player(x,y,startDirection));
+	private void createPlayer(int x, int y, int startDirection, Color color) {
+		players.add(new Player(x,y,startDirection, color));
 	}
 
 	public static void main(String[] args) {

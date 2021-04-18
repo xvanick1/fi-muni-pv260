@@ -1,5 +1,6 @@
 package cz.muni.fi.muni.pv260.a01;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +13,16 @@ public class Player {
     private int xPosition;
     private int yPosition;
     private int currentDirection;
+    private Color color;
 
     ArrayList<Integer> pathX = new ArrayList();
     ArrayList<Integer> pathY = new ArrayList();
 
-    public Player(int xPosition, int yPosition, int currentDirection){
+    public Player(int xPosition, int yPosition, int currentDirection, Color color){
         setxPosition(xPosition);
         setyPosition(yPosition);
         setCurrentDirection(currentDirection);
+        setColor(color);
     }
     public ArrayList<Integer> getPathX() {
         return pathX;
@@ -59,6 +62,14 @@ public class Player {
 
     public void setCurrentDirection(int currentDirection) {
         this.currentDirection = currentDirection;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public void updatePosition(int moveAmount, ScreenManager sm){
@@ -108,5 +119,12 @@ public class Player {
     public void addCurrentPositionsToPaths() {
         this.addPathX(this.getxPosition());
         this.addPathY(this.getyPosition());
+    }
+
+    public void draw(Graphics2D g) {
+        g.setColor(getColor());
+        for(int i=0;i<this.getPathX().size();i++){
+            g.fillRect(this.getPathX().get(i), this.getPathY().get(i), 10, 10);
+        }
     }
 }
