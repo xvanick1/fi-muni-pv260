@@ -128,6 +128,27 @@ public class Player {
         return false;
     }
 
+
+    public void changeDirection(int keyPressed){
+        if (keyPressed == this.keyBinding.getUp()) {
+            if (this.getCurrentDirection() != 2){
+                this.setCurrentDirection(0);
+            }
+        } else if (keyPressed == this.keyBinding.getDown()) {
+            if (this.getCurrentDirection()  != 0){
+                this.setCurrentDirection(2);
+            }
+        } else if (keyPressed == this.keyBinding.getRight()) {
+            if (this.getCurrentDirection()  != 3){
+                this.setCurrentDirection(1);
+            }
+        } else if (keyPressed == this.keyBinding.getLeft()) {
+            if (this.getCurrentDirection()  != 1){
+                this.setCurrentDirection(3);
+            }
+        }
+    }
+
     public void addCurrentPositionsToPaths() {
         this.addPathX(this.getxPosition());
         this.addPathY(this.getyPosition());
