@@ -171,7 +171,8 @@ public class Game extends Core implements KeyListener, MouseListener,
 				currentDirection2 = 3;
 				}
 		}
-
+		for(Player player: players)
+			player.changeDirection(e.getKeyCode());
 	}
 
 	public void keyReleased(KeyEvent e) {
