@@ -1,3 +1,5 @@
+package cz.muni.fi.muni.pv260.a01;
+
 import java.awt.Image;
 import java.util.ArrayList;
 public class Animation {
