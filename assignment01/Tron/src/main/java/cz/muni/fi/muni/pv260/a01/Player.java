@@ -1,5 +1,7 @@
 package cz.muni.fi.muni.pv260.a01;
 
+import java.util.ArrayList;
+
 /**
  * @author Jozef Vanický
  * @author Michal Zelenák
@@ -10,6 +12,15 @@ public class Player {
     private int xPosition;
     private int yPosition;
     private int currentDirection;
+
+    ArrayList<Integer> pathX = new ArrayList();
+    ArrayList<Integer> pathY = new ArrayList();
+
+    public Player(int xPosition, int yPosition, int currentDirection){
+        setxPosition(xPosition);
+        setyPosition(yPosition);
+        setCurrentDirection(currentDirection);
+    }
 
     public int getxPosition() {
         return xPosition;
