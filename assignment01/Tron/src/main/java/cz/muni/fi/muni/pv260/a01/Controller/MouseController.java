@@ -5,7 +5,6 @@ import java.awt.event.MouseListener;
 
 import static cz.muni.fi.muni.pv260.a01.Controller.Direction.*;
 
-
 public class MouseController implements InputController, MouseListener {
 
     private Direction direction;
