@@ -2,6 +2,7 @@ package cz.muni.fi.muni.pv260.a01;
 
 import java.awt.*;
 import java.util.ArrayList;
+import cz.muni.fi.muni.pv260.a01.Direction;
 
 /**
  * @author Jozef Vanický
@@ -10,61 +11,33 @@ import java.util.ArrayList;
  * @project assignment01
  **/
 public class Player {
-    private int xPosition;
-    private int yPosition;
-    private int currentDirection;
+    private Point actualPosition;
+    private Direction currentDirection;
     private Color color;
     private KeyBinding keyBinding;
+    private PathImpl traveledPath= new PathImpl();
 
-
-
-    ArrayList<Integer> pathX = new ArrayList();
-    ArrayList<Integer> pathY = new ArrayList();
-
-    public Player(int xPosition, int yPosition, int currentDirection, Color color, KeyBinding keyBinding){
-        setxPosition(xPosition);
-        setyPosition(yPosition);
+    public Player(int xPosition, int yPosition, Direction currentDirection, Color color, KeyBinding keyBinding){
+        actualPosition=new Point(xPosition,yPosition);
         setCurrentDirection(currentDirection);
         setColor(color);
         setKeyBinding(keyBinding);
     }
-    public ArrayList<Integer> getPathX() {
-        return pathX;
+    public PathImpl getPath() {
+        return traveledPath;
     }
 
-    public ArrayList<Integer> getPathY() {
-        return pathY;
+
+    public void addPointToPath(Point point) {
+        this.traveledPath.addPoint(point);
     }
 
-    public void addPathX(Integer pathX) {
-        this.pathX.add(pathX);
-    }
 
-    public void addPathY(Integer pathY) {
-        this.pathY.add(pathY);
-    }
-
-    public int getxPosition() {
-        return xPosition;
-    }
-
-    public void setxPosition(int xPosition) {
-        this.xPosition = xPosition;
-    }
-
-    public int getyPosition() {
-        return yPosition;
-    }
-
-    public void setyPosition(int yPosition) {
-        this.yPosition = yPosition;
-    }
-
-    public int getCurrentDirection() {
+    public Direction getCurrentDirection() {
         return currentDirection;
     }
 
-    public void setCurrentDirection(int currentDirection) {
+    public void setCurrentDirection(Direction currentDirection) {
         this.currentDirection = currentDirection;
     }
 
@@ -84,45 +57,46 @@ public class Player {
         this.color = color;
     }
 
-    public void updatePosition(int moveAmount, ScreenManager sm){
-        switch(this.currentDirection){
-            case 0:
-                if (this.yPosition>0){
-                    this.yPosition-=moveAmount;
+    public void updatePosition(int moveAmount, ScreenManager screenManager) {
+        switch (currentDirection) {
+            case UP:
+                if (this.actualPosition.getY() > 0) {
+                    this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() - moveAmount);
                 } else {
-                    this.yPosition = sm.getHeight();
+                    this.actualPosition.move(this.actualPosition.getX(), screenManager.getHeight());
                 }
                 break;
-            case 1:
-                if (this.xPosition < sm.getWidth()){
-                    this.xPosition+=moveAmount;
+            case RIGHT:
+                if (this.actualPosition.getX() < screenManager.getWidth()) {
+                    this.actualPosition.move(this.actualPosition.getX() + moveAmount, this.actualPosition.getY());
                 } else {
-                    this.xPosition = 0;
+                    this.actualPosition.move(0, this.actualPosition.getY());
                 }
                 break;
-            case 2:
-                if (this.yPosition < sm.getHeight()){
-                    this.yPosition+=moveAmount;
+            case DOWN:
+                if (this.actualPosition.getY() < screenManager.getHeight()) {
+                    this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() + moveAmount);
                 } else {
-                    this.yPosition = 0;
+                    this.actualPosition.move(this.actualPosition.getX(), 0);
                 }
                 break;
-            case 3:
-                if (this.xPosition>0){
-                    this.xPosition-=moveAmount;
+            case LEFT:
+                if (this.actualPosition.getX() > 0) {
+                    this.actualPosition.move(this.actualPosition.getX() - moveAmount, this.actualPosition.getY());
                 } else {
-                    this.xPosition = sm.getWidth();
+                    this.actualPosition.move(screenManager.getWidth(), this.actualPosition.getY());
                 }
                 break;
         }
-
     }
+
 
     public boolean collisionDetected(ArrayList<Player> players) {
         for(Player player:players) {
-            for (int i = 0; i < pathX.size(); i++) {
-                if ((player.getPathX().get(i) == xPosition) && (player.getPathY().get(i) == yPosition)) {
-                    return true;
+
+            for (int i = 0; i < traveledPath.size(); i++) {
+                if (player.traveledPath.getPointOnPosition(i).equals(actualPosition)) {
+                    return false;
                 }
             }
         }
@@ -132,33 +106,36 @@ public class Player {
 
     public void changeDirection(int keyPressed){
         if (keyPressed == this.keyBinding.getUp()) {
-            if (this.getCurrentDirection() != 2){
-                this.setCurrentDirection(0);
+            if (this.getCurrentDirection() != Direction.UP){
+                this.setCurrentDirection(Direction.UP);
             }
         } else if (keyPressed == this.keyBinding.getDown()) {
-            if (this.getCurrentDirection()  != 0){
-                this.setCurrentDirection(2);
+            if (this.getCurrentDirection()  != Direction.DOWN){
+                this.setCurrentDirection(Direction.DOWN);
             }
         } else if (keyPressed == this.keyBinding.getRight()) {
-            if (this.getCurrentDirection()  != 3){
-                this.setCurrentDirection(1);
+            if (this.getCurrentDirection()  != Direction.RIGHT){
+                this.setCurrentDirection(Direction.RIGHT);
             }
         } else if (keyPressed == this.keyBinding.getLeft()) {
-            if (this.getCurrentDirection()  != 1){
-                this.setCurrentDirection(3);
+            if (this.getCurrentDirection()  != Direction.LEFT){
+                this.setCurrentDirection(Direction.LEFT);
             }
         }
     }
 
-    public void addCurrentPositionsToPaths() {
-        this.addPathX(this.getxPosition());
-        this.addPathY(this.getyPosition());
+    public void addCurrentPositionsToPath() {
+        this.traveledPath.addPoint(new Point(actualPosition.getX(),actualPosition.getY()));
     }
 
     public void draw(Graphics2D g) {
         g.setColor(getColor());
-        for(int i=0;i<this.getPathX().size();i++){
-            g.fillRect(this.getPathX().get(i), this.getPathY().get(i), 10, 10);
+        for(int i=0;i<this.traveledPath.size();i++){
+            g.fillRect(this.traveledPath.getPointOnPosition(i).getX(), this.traveledPath.getPointOnPosition(i).getY(), 10, 10);
         }
+    }
+
+    public Point getCurrentPosition() {
+        return actualPosition;
     }
 }
