@@ -1,8 +1,6 @@
 package cz.muni.fi.muni.pv260.a01;
 
 import java.awt.*;
-import java.util.ArrayList;
-import cz.muni.fi.muni.pv260.a01.Direction;
 
 /**
  * @author Jozef Vanický
@@ -91,17 +89,6 @@ public class Player {
     }
 
 
-    public boolean collisionDetected(ArrayList<Player> players) {
-        for(Player player:players) {
-
-            for (int i = 0; i < traveledPath.size(); i++) {
-                if (player.traveledPath.getPointOnPosition(i).equals(actualPosition)) {
-                    return false;
-                }
-            }
-        }
-        return false;
-    }
 
 
     public void changeDirection(int keyPressed){

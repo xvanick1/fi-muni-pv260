@@ -11,7 +11,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 public class Game extends Core implements KeyListener, MouseListener, MouseMotionListener {
-	ArrayList<Player> players = new ArrayList<Player>();
+	ArrayList<Player> players = new ArrayList<>();
 	int moveAmount = 5;
 
 	public void init() {
