@@ -1,9 +1,11 @@
 package cz.muni.fi.muni.pv260.a01.Controller;
 
+import cz.muni.fi.muni.pv260.a01.Direction;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import static cz.muni.fi.muni.pv260.a01.Controller.Direction.*;
+import static cz.muni.fi.muni.pv260.a01.Direction.*;
 
 public class KeyController implements InputController, KeyListener {
     private final int up;
