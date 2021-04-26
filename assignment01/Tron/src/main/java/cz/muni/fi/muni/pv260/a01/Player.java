@@ -1,5 +1,7 @@
 package cz.muni.fi.muni.pv260.a01;
 
+import cz.muni.fi.muni.pv260.a01.Controller.InputController;
+
 import java.awt.*;
 
 /**
@@ -12,39 +14,39 @@ public class Player {
     private Point actualPosition;
     private Direction currentDirection;
     private Color color;
-    private KeyBinding keyBinding;
+    private InputController inputController;
     private PathImpl traveledPath= new PathImpl();
 
-    public Player(int xPosition, int yPosition, Direction currentDirection, Color color, KeyBinding keyBinding){
+    public Player(int xPosition, int yPosition, Direction currentDirection, Color color, InputController inputController){
         actualPosition=new Point(xPosition,yPosition);
-        setCurrentDirection(currentDirection);
+
         setColor(color);
-        setKeyBinding(keyBinding);
+        setController(inputController);
+        setCurrentDirection(currentDirection);
     }
+
     public PathImpl getPath() {
         return traveledPath;
     }
 
-
     public void addPointToPath(Point point) {
         this.traveledPath.addPoint(point);
     }
-
 
     public Direction getCurrentDirection() {
         return currentDirection;
     }
 
     public void setCurrentDirection(Direction currentDirection) {
-        this.currentDirection = currentDirection;
+        this.getController().setInitialDirection(currentDirection);
     }
 
-    public KeyBinding getKeyBinding() {
-        return keyBinding;
+    public InputController getController() {
+        return inputController;
     }
 
-    public void setKeyBinding(KeyBinding keyBinding) {
-        this.keyBinding = keyBinding;
+    public void setController(InputController inputController) {
+        this.inputController = inputController;
     }
 
     public Color getColor() {
@@ -56,7 +58,7 @@ public class Player {
     }
 
     public void updatePosition(int moveAmount, ScreenManager screenManager) {
-        switch (currentDirection) {
+        switch (this.inputController.getDirection()) {
             case UP:
                 if (this.actualPosition.getY() > 0) {
                     this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() - moveAmount);
@@ -85,29 +87,6 @@ public class Player {
                     this.actualPosition.move(screenManager.getWidth(), this.actualPosition.getY());
                 }
                 break;
-        }
-    }
-
-
-
-
-    public void changeDirection(int keyPressed){
-        if (keyPressed == this.keyBinding.getUp()) {
-            if (this.getCurrentDirection() != Direction.UP){
-                this.setCurrentDirection(Direction.UP);
-            }
-        } else if (keyPressed == this.keyBinding.getDown()) {
-            if (this.getCurrentDirection()  != Direction.DOWN){
-                this.setCurrentDirection(Direction.DOWN);
-            }
-        } else if (keyPressed == this.keyBinding.getRight()) {
-            if (this.getCurrentDirection()  != Direction.RIGHT){
-                this.setCurrentDirection(Direction.RIGHT);
-            }
-        } else if (keyPressed == this.keyBinding.getLeft()) {
-            if (this.getCurrentDirection()  != Direction.LEFT){
-                this.setCurrentDirection(Direction.LEFT);
-            }
         }
     }
 
