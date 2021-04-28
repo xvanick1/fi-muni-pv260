@@ -1,6 +1,7 @@
 package cz.muni.fi.pv260.a01.GameEngine;
 
 import cz.muni.fi.pv260.a01.GameEngine.Controller.InputController;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenMeasurements;
 
 import java.awt.*;
 

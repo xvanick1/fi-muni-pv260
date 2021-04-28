@@ -5,6 +5,8 @@ import cz.muni.fi.pv260.a01.GameEngine.Controller.ControllerBuilder;
 import cz.muni.fi.pv260.a01.GameEngine.Controller.InputController;
 import cz.muni.fi.pv260.a01.GameEngine.*;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
+
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;

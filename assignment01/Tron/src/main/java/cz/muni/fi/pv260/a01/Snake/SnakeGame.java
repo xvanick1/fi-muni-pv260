@@ -5,7 +5,7 @@ import cz.muni.fi.pv260.a01.GameEngine.Controller.InputController;
 import cz.muni.fi.pv260.a01.GameEngine.Direction;
 import cz.muni.fi.pv260.a01.GameEngine.Game;
 import cz.muni.fi.pv260.a01.GameEngine.GameEngine;
-import cz.muni.fi.pv260.a01.GameEngine.ScreenManager;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
 
 import java.awt.*;
 import java.awt.event.KeyListener;

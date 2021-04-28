@@ -1,10 +1,10 @@
 package cz.muni.fi.pv260.a01.Snake;
 
 import cz.muni.fi.pv260.a01.GameEngine.Game;
-import cz.muni.fi.pv260.a01.GameEngine.ScreenManagerEngine;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManagerEngine;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
-import cz.muni.fi.pv260.a01.GameEngine.ScreenManager;
-import cz.muni.fi.pv260.a01.GameEngine.ScreenMeasurements;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenMeasurements;
 
 import java.awt.*;
 

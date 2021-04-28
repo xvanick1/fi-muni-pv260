@@ -1,4 +1,4 @@
-package cz.muni.fi.pv260.a01.GameEngine;
+package cz.muni.fi.pv260.a01.GameEngine.ScreenManagement;
 
 public class ScreenMeasurements {
     private int Height;
@@ -13,15 +13,8 @@ public class ScreenMeasurements {
         return Height;
     }
 
-    public void setHeight(int height) {
-        Height = height;
-    }
-
     public int getWidth() {
         return Width;
     }
 
-    public void setWidth(int width) {
-        Width = width;
-    }
 }
