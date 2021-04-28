@@ -19,13 +19,7 @@ public class GameEngine{
                     new DisplayMode(640, 480, 16, 0),
             };
 
-    public void sleepGame(int sleepingTime) {
-        try {
-            Thread.sleep(sleepingTime);
-        } catch (Exception ex) {
 
-        }
-    }
 
     public void run() {
         try {
@@ -59,17 +53,15 @@ public class GameEngine{
 
 
     public void gameLoop() {
-        long startTime = System.currentTimeMillis();
-        long cumTime = startTime;
+        GameTimer gameTimer = new GameTimer();
+        Graphics2D graphics2D = game.getGraphics();
 
         while (getRunning()) {
-            long timePassed = System.currentTimeMillis() - cumTime;
-            cumTime += timePassed;
-            Graphics2D graphics2D = game.getGraphics();
+            gameTimer.measureTime();
             game.updateGame();
             game.updateScreen();
-            graphics2D.dispose();
-            sleepGame(20);
+           // graphics2D.dispose();
+            gameTimer.sleepGame(20);
         }
     }
 
