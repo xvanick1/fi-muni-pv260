@@ -19,7 +19,7 @@ public class SnakeGame implements Game {
     private Food food;
     private int pathLengthToMemorize = OPTIM_EXCESS_POINTS_STORED;
     private final int speed = 4;
-    protected SnakeScreenManager snakeScreenManager;
+    private SnakeScreenManager snakeScreenManager;
     private static final GameEngine gameEngine= new GameEngine();
 
     public static void main(String[] args)  {
