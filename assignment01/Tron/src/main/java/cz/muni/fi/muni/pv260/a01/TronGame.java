@@ -1,16 +1,17 @@
-package cz.muni.fi.muni.pv260.a01.Tron;
+package cz.muni.fi.muni.pv260.a01;
 
 import cz.muni.fi.muni.pv260.a01.Controller.ControllerBuilder;
 import cz.muni.fi.muni.pv260.a01.Controller.InputController;
-import cz.muni.fi.muni.pv260.a01.Point;
-import cz.muni.fi.muni.pv260.a01.*;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Window;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.awt.DisplayMode;
 import java.awt.image.BufferedImage;
 
-public class TronGame implements Game {
+public class TronGame implements Game{
 	private ScreenManager screenManager;
 	private static final GameEngine gameEngine = new GameEngine();
 	int speed = 5;
@@ -93,7 +94,6 @@ public class TronGame implements Game {
 			player.addCurrentPositionToPath();
 			player.draw(g);
 		}
-		screenManager.update();
 	}
 
 	private void checkForCollisions(Point checkedPoint) {
