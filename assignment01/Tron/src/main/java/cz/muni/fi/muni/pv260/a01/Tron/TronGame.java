@@ -1,5 +1,6 @@
-package cz.muni.fi.muni.pv260.a01;
+package cz.muni.fi.muni.pv260.a01.Tron;
 
+import cz.muni.fi.muni.pv260.a01.*;
 import cz.muni.fi.muni.pv260.a01.Controller.ControllerBuilder;
 import cz.muni.fi.muni.pv260.a01.Controller.InputController;
 
@@ -11,7 +12,7 @@ import java.awt.event.MouseListener;
 import java.awt.DisplayMode;
 import java.awt.image.BufferedImage;
 
-public class TronGame implements Game{
+public class TronGame implements Game {
 	private ScreenManager screenManager;
 	private static final GameEngine gameEngine = new GameEngine();
 	int speed = 5;
@@ -46,7 +47,7 @@ public class TronGame implements Game{
 	@Override
 	public void updateGame() {
 		for (Player player : gameEngine.getPlayers()) {
-			player.updatePosition(speed, screenManager);
+			player.makeMovement(speed, screenManager.getMeasurements());
 			checkForCollisions(player.getActualPosition());
 			player.addCurrentPositionToPath();
 		}
@@ -58,8 +59,13 @@ public class TronGame implements Game{
 
 
 	@Override
-	public void createPlayer(int x, int y, Direction startDirection, Color color, InputController inputController) {
-		gameEngine.addPlayer(new Player(x,y,startDirection, color, inputController));
+	public void createPlayer(int xPosition, int yPosition, Direction direction, Color color, InputController inputController) {
+		TronPlayer player = new TronPlayer();
+		player.setColor(color);
+		player.setController(inputController);
+		player.setInitialPosition(xPosition, yPosition);
+		player.setInitialDirection(direction);
+		gameEngine.addPlayer(player);
 	}
 
 	protected Window getFullScreenWindow() {
@@ -84,12 +90,6 @@ public class TronGame implements Game{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, screenManager.getWidth(), screenManager.getHeight());
 
-		for(Player player : gameEngine.getPlayers()){
-			player.updatePosition(speed, screenManager);
-		}
-		for (Player player : gameEngine.getPlayers()) {
-			checkForCollisions(player.getActualPosition());
-		}
 		for(Player player : gameEngine.getPlayers()) {
 			player.addCurrentPositionToPath();
 			player.draw(g);

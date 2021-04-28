@@ -125,5 +125,9 @@ public class ScreenManager {
 			}
 		
 		}
-	
+
+	public ScreenMeasurements getMeasurements() {
+		return new ScreenMeasurements(this.getHeight(),this.getWidth());
+	}
+
 }
