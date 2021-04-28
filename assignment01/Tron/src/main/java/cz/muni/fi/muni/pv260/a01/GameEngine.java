@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class GameEngine{
     public ArrayList<Player> players = new ArrayList<>();
     protected boolean running;
-    private cz.muni.fi.muni.pv260.a01.Game game;
+    private Game game;
 
     protected static final DisplayMode modes[] =
             {
