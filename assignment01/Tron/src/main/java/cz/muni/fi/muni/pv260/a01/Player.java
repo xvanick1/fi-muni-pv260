@@ -90,7 +90,7 @@ public class Player {
         }
     }
 
-    public void addCurrentPositionsToPath() {
+    public void addCurrentPositionToPath() {
         this.traveledPath.addPoint(new Point(actualPosition.getX(),actualPosition.getY()));
     }
 
@@ -101,7 +101,8 @@ public class Player {
         }
     }
 
-    public Point getCurrentPosition() {
+    public Point getActualPosition(){
         return actualPosition;
     }
+
 }
