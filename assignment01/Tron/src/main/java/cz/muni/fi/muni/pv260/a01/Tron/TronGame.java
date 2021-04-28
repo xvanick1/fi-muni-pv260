@@ -2,10 +2,10 @@ package cz.muni.fi.muni.pv260.a01.Tron;
 
 import java.awt.*;
 
-import cz.muni.fi.muni.pv260.a01.*;
-import cz.muni.fi.muni.pv260.a01.Controller.ControllerBuilder;
-import cz.muni.fi.muni.pv260.a01.Controller.InputController;
-import cz.muni.fi.muni.pv260.a01.Point;
+import cz.muni.fi.muni.pv260.a01.GameEngine.Controller.ControllerBuilder;
+import cz.muni.fi.muni.pv260.a01.GameEngine.Controller.InputController;
+import cz.muni.fi.muni.pv260.a01.GameEngine.*;
+import cz.muni.fi.muni.pv260.a01.GameEngine.Point;
 
 
 import java.awt.event.KeyListener;

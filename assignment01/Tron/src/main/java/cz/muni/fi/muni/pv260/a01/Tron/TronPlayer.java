@@ -1,8 +1,7 @@
 package cz.muni.fi.muni.pv260.a01.Tron;
 
-import cz.muni.fi.muni.pv260.a01.Controller.InputController;
-import cz.muni.fi.muni.pv260.a01.PlayerImpl;
-import cz.muni.fi.muni.pv260.a01.Point;
+import cz.muni.fi.muni.pv260.a01.GameEngine.PlayerImpl;
+import cz.muni.fi.muni.pv260.a01.GameEngine.Point;
 
 public class TronPlayer extends PlayerImpl {
     private TronPath traveledPath;

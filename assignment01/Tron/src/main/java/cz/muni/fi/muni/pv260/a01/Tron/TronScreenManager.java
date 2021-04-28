@@ -1,7 +1,7 @@
 package cz.muni.fi.muni.pv260.a01.Tron;
 
-import cz.muni.fi.muni.pv260.a01.*;
-import cz.muni.fi.muni.pv260.a01.Point;
+import cz.muni.fi.muni.pv260.a01.GameEngine.*;
+import cz.muni.fi.muni.pv260.a01.GameEngine.Point;
 
 import java.awt.*;
 

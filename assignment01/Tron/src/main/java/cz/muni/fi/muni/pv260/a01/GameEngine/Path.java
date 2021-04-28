@@ -1,4 +1,4 @@
-package cz.muni.fi.muni.pv260.a01;
+package cz.muni.fi.muni.pv260.a01.GameEngine;
 
 
 import java.util.List;

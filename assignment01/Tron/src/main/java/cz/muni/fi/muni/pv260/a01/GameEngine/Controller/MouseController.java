@@ -1,11 +1,11 @@
-package cz.muni.fi.muni.pv260.a01.Controller;
+package cz.muni.fi.muni.pv260.a01.GameEngine.Controller;
 
-import cz.muni.fi.muni.pv260.a01.Direction;
+import cz.muni.fi.muni.pv260.a01.GameEngine.Direction;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static cz.muni.fi.muni.pv260.a01.Direction.*;
+import static cz.muni.fi.muni.pv260.a01.GameEngine.Direction.*;
 
 public class MouseController implements InputController, MouseListener {
 
