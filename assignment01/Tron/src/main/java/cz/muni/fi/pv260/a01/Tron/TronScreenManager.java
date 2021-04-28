@@ -1,6 +1,6 @@
 package cz.muni.fi.pv260.a01.Tron;
 
-import cz.muni.fi.muni.pv260.a01.GameEngine.*;
+import cz.muni.fi.pv260.a01.GameEngine.*;
 import cz.muni.fi.pv260.a01.GameEngine.*;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
 

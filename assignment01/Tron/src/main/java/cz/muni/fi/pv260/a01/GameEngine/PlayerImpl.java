@@ -26,28 +26,28 @@ public abstract class PlayerImpl implements Player{
     @Override
     public void makeMovement(int moveAmount, ScreenMeasurements screenMeasurements) {
         switch (this.controller.getDirection()) {
-            case Direction.UP:
+            case UP:
                 if (this.actualPosition.getY() > 0) {
                     this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() - moveAmount);
                 } else {
                     this.actualPosition.move(this.actualPosition.getX(), screenMeasurements.getHeight());
                 }
                 break;
-            case Direction.RIGHT:
+            case RIGHT:
                 if (this.actualPosition.getX() < screenMeasurements.getWidth()) {
                     this.actualPosition.move(this.actualPosition.getX() + moveAmount, this.actualPosition.getY());
                 } else {
                     this.actualPosition.move(0, this.actualPosition.getY());
                 }
                 break;
-            case Direction.DOWN:
+            case DOWN:
                 if (this.actualPosition.getY() < screenMeasurements.getHeight()) {
                     this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() + moveAmount);
                 } else {
                     this.actualPosition.move(this.actualPosition.getX(), 0);
                 }
                 break;
-            case Direction.LEFT:
+            case LEFT:
                 if (this.actualPosition.getX() > 0) {
                     this.actualPosition.move(this.actualPosition.getX() - moveAmount, this.actualPosition.getY());
                 } else {
