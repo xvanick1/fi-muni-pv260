@@ -34,6 +34,9 @@ public class PathImpl implements Path {
 
     @Override
     public List<Point> getLastNPoints(int n) {
+        while(traveledPoints.size()-n<0){
+            n+=1;
+        }
         return traveledPoints.subList(traveledPoints.size() - n, traveledPoints.size());
     }
 
