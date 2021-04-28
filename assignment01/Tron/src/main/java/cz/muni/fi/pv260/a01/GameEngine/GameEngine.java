@@ -54,13 +54,11 @@ public class GameEngine{
 
     public void gameLoop() {
         GameTimer gameTimer = new GameTimer();
-        Graphics2D graphics2D = game.getGraphics();
 
         while (getRunning()) {
             gameTimer.measureTime();
             game.updateGame();
             game.updateScreen();
-           // graphics2D.dispose();
             gameTimer.sleepGame(20);
         }
     }
