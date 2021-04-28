@@ -8,42 +8,14 @@ import javax.swing.JFrame;
 public class ScreenManagerEngine {
 
 	private GraphicsDevice graphicsDevice;
+	private DisplayModesManager displayModesManager;
 
 	public ScreenManagerEngine(){
 		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		graphicsDevice = e.getDefaultScreenDevice();
+		displayModesManager = new DisplayModesManager();
 	}
 
-	public DisplayMode[] getCompatibleDisplayModes(){
-		return graphicsDevice.getDisplayModes();
-	}
-
-	public DisplayMode findFirstCompatibleMode(DisplayMode[] modes){
-
-		DisplayMode[] goodModes = graphicsDevice.getDisplayModes();
-		for (DisplayMode mode : modes) {
-			for (DisplayMode goodMode : goodModes) {
-				if (displayModesMatch(mode, goodMode)) {
-					return mode;
-				}
-			}
-		}
-		return null;
-	}
-
-	public DisplayMode getCurrentDM(){
-		return graphicsDevice.getDisplayMode();
-	}
-
-	public boolean displayModesMatch(DisplayMode m1, DisplayMode m2){
-		if(m1.getWidth() != m2.getWidth() || m1.getHeight() != m2.getHeight()){
-			return false;
-		}
-		if(m1.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI && m2.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI && m1.getBitDepth() != m2.getBitDepth()){
-			return false;
-		}
-		return m1.getRefreshRate() == DisplayMode.REFRESH_RATE_UNKNOWN || m2.getRefreshRate() == DisplayMode.REFRESH_RATE_UNKNOWN || m1.getRefreshRate() == m2.getRefreshRate();
-	}
 
 	public void setFullScreen(DisplayMode dm){
 		JFrame f = new JFrame();
@@ -86,7 +58,7 @@ public class ScreenManagerEngine {
 	}
 
 	public int getWidth(){
-		Window w = graphicsDevice.getFullScreenWindow();
+		Window w = getFullScreenWindow();
 		if(w != null){
 			return w.getWidth();
 		}else{
@@ -95,7 +67,7 @@ public class ScreenManagerEngine {
 	}
 
 	public int getHeight(){
-		Window w = graphicsDevice.getFullScreenWindow();
+		Window w = getFullScreenWindow();
 		if(w != null){
 			return w.getHeight();
 		}else{
@@ -111,5 +83,7 @@ public class ScreenManagerEngine {
 		graphicsDevice.setFullScreenWindow(w);
 	}
 
-
+	public DisplayMode findFirstCompatibleMode(DisplayMode[] modes) {
+		return displayModesManager.findFirstCompatibleMode(modes);
+	}
 }

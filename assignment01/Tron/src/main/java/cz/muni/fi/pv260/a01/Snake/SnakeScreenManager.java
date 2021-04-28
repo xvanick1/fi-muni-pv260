@@ -20,30 +20,35 @@ public class SnakeScreenManager implements ScreenManager {
         }
         SnakeGame snakeGame=(SnakeGame) game;
         Graphics2D graphics2D= screenManagerEngine.getGraphics();
-        graphics2D.setColor(Color.BLACK);//Color(Color.BLACK);
-        graphics2D.fillRect(0, 0, screenManagerEngine.getWidth(), screenManagerEngine.getHeight());
+        drawBackground();
         drawSnake(snakeGame);
         drawFood(snakeGame);
         graphics2D.dispose();
         screenManagerEngine.update();
     }
 
-    private void drawFood(SnakeGame snakeGame) {
+    private void drawBackground() {
+        drawRectangle(0, 0, screenManagerEngine.getWidth(), screenManagerEngine.getHeight(),Color.BLACK);
+    }
+
+    private void drawRectangle(int startX, int startY, int sizeX, int sizeY, Color color) {
         Graphics2D graphics2D= screenManagerEngine.getGraphics();
-        graphics2D.setColor(snakeGame.getFood().getColor());
-        graphics2D.fillRect(snakeGame.getFood().getX(), snakeGame.getFood().getY(), PIXEL_SIZE, PIXEL_SIZE);
+        graphics2D.setColor(color);
+        graphics2D.fillRect(startX, startY, sizeX, sizeY);
+    }
+
+    private void drawFood(SnakeGame snakeGame) {
+        drawRectangle( snakeGame.getFood().getX(), snakeGame.getFood().getY(), PIXEL_SIZE, PIXEL_SIZE,snakeGame.getFood().getColor());
     }
 
     private void drawSnake(SnakeGame snakeGame) {
         Color snakeColor = snakeGame.getSnake().getColor();
-        int snakeLenght=snakeGame.getSnake().getNumberOfVisiblePoints();
-        snakeGame.getSnake().getPath().getLastNPoints(snakeLenght).forEach(point -> drawSnakePoint(point,snakeColor));
+        int snakeLength=snakeGame.getSnake().getNumberOfVisiblePoints();
+        snakeGame.getSnake().getPath().getLastNPoints(snakeLength).forEach(point -> drawSnakePoint(point,snakeColor));
     }
 
     private void drawSnakePoint(Point point, Color color){
-        Graphics2D graphics2D= screenManagerEngine.getGraphics();
-        graphics2D.setColor(color);
-        graphics2D.fillRect(point.getX(), point.getY(), PIXEL_SIZE, PIXEL_SIZE);
+        drawRectangle(point.getX(), point.getY(), PIXEL_SIZE, PIXEL_SIZE,color);
     }
 
     @Override
@@ -57,9 +62,7 @@ public class SnakeScreenManager implements ScreenManager {
     }
 
     @Override
-    public DisplayMode findFirstCompatibleMode(DisplayMode[] modes) {
-        return screenManagerEngine.findFirstCompatibleMode(modes);
-    }
+    public DisplayMode findFirstCompatibleMode(DisplayMode[] modes) { return screenManagerEngine.findFirstCompatibleMode(modes); }
 
     @Override
     public void restoreScreen() {
