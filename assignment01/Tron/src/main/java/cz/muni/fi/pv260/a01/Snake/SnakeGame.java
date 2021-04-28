@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 public class SnakeGame implements Game {
 
     private static final int TOUCH_DISTANCE_ACCEPTANCE = 15;
-    private static final int OPTIM_EXCESS_POINTS_STORED = 200;
+    private static final int OPTIM_EXCESS_POINTS_STORED = 2000;
     private SnakePlayer snakePlayer;
     private Food food;
     private int pathLengthToMemorize = OPTIM_EXCESS_POINTS_STORED;
@@ -51,8 +51,9 @@ public class SnakeGame implements Game {
     @Override
     public void updateGame() {
         snakePlayer.makeMovement(speed, snakeScreenManager.getMeasurements());
-        checkForSelfCollision(snakePlayer.getActualPosition());
-        if (snakePlayer.getActualPosition().distanceFromPoint(food) < TOUCH_DISTANCE_ACCEPTANCE) {
+        SnakeCollisionChecker.checkForSelfCollision(snakePlayer.getActualPosition(),this.snakePlayer);
+
+        if (foodIsEaten()) {
             snakePlayer.setNumberOfVisiblePoints(snakePlayer.getNumberOfVisiblePoints() + this.speed);
             generateNewPointForEating();
             pathLengthToMemorize = snakePlayer.getNumberOfVisiblePoints() + OPTIM_EXCESS_POINTS_STORED;
@@ -64,6 +65,9 @@ public class SnakeGame implements Game {
         snakePlayer.addCurrentPositionToPath();
     }
 
+    private boolean foodIsEaten() {
+        return SnakeCollisionChecker.foodIsEaten(snakePlayer,food,TOUCH_DISTANCE_ACCEPTANCE);
+    }
 
     public void restoreScreen() {
         snakeScreenManager.restoreScreen();
