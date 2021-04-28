@@ -1,7 +1,6 @@
 package cz.muni.fi.muni.pv260.a01;
 
 import cz.muni.fi.muni.pv260.a01.Controller.InputController;
-import cz.muni.fi.muni.pv260.a01.Controller.InputController;
 
 import java.awt.*;
 
