@@ -1,10 +1,8 @@
 package cz.muni.fi.muni.pv260.a01;
 
 import cz.muni.fi.muni.pv260.a01.Controller.InputController;
-import cz.muni.fi.muni.pv260.a01.ScreenMeasurements;
 
 import java.awt.*;
-import java.util.List;
 
 public interface Player {
 
@@ -20,5 +18,4 @@ public interface Player {
     void setInitialDirection(Direction direction);
     int getNumberOfVisiblePoints();
     InputController getController();
-    void draw(Graphics2D graphics2D);
 }

@@ -1,16 +1,15 @@
 package cz.muni.fi.muni.pv260.a01.Tron;
 
-import cz.muni.fi.muni.pv260.a01.*;
+import cz.muni.fi.muni.pv260.a01.Controller.InputController;
+import cz.muni.fi.muni.pv260.a01.PlayerImpl;
 import cz.muni.fi.muni.pv260.a01.Point;
 
-import java.awt.*;
-
 public class TronPlayer extends PlayerImpl {
-    private PathImpl traveledPath;
+    private TronPath traveledPath;
 
 
     public TronPlayer() {
-        this.traveledPath = new PathImpl();
+        this.traveledPath = new TronPath();
     }
 
 
@@ -22,18 +21,9 @@ public class TronPlayer extends PlayerImpl {
     }
 
     @Override
-    public PathImpl getPath() {
+    public TronPath getPath() {
         return traveledPath;
     }
 
-    public void draw(Graphics2D graphics2D){
-        for(Point point : this.getPath().getAllPoints()){
-            drawPoint(point, this.getColor(), graphics2D);
-        }
-    }
 
-    private void drawPoint(Point point, Color color, Graphics2D graphics2D){
-        graphics2D.setColor(color);
-        graphics2D.fillRect(point.getX(), point.getY(), 10, 10);
-    }
 }
