@@ -1,6 +1,6 @@
-package cz.muni.fi.muni.pv260.a01.GameEngine;
+package cz.muni.fi.pv260.a01.GameEngine;
 
-import cz.muni.fi.muni.pv260.a01.GameEngine.Controller.InputController;
+import cz.muni.fi.pv260.a01.GameEngine.Controller.InputController;
 
 import java.awt.*;
 
@@ -11,7 +11,7 @@ import java.awt.*;
  * @project assignment01
  **/
 public abstract class PlayerImpl implements Player{
-    protected  Point actualPosition;
+    protected cz.muni.fi.pv260.a01.GameEngine.Point actualPosition;
     protected Color color;
     protected InputController controller;
     protected int numberOfVisiblePoints = 1;
@@ -19,35 +19,35 @@ public abstract class PlayerImpl implements Player{
 
 
     @Override
-    public Point getActualPosition() {
+    public cz.muni.fi.pv260.a01.GameEngine.Point getActualPosition() {
         return actualPosition;
     }
 
     @Override
     public void makeMovement(int moveAmount, ScreenMeasurements screenMeasurements) {
         switch (this.controller.getDirection()) {
-            case UP:
+            case Direction.UP:
                 if (this.actualPosition.getY() > 0) {
                     this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() - moveAmount);
                 } else {
                     this.actualPosition.move(this.actualPosition.getX(), screenMeasurements.getHeight());
                 }
                 break;
-            case RIGHT:
+            case Direction.RIGHT:
                 if (this.actualPosition.getX() < screenMeasurements.getWidth()) {
                     this.actualPosition.move(this.actualPosition.getX() + moveAmount, this.actualPosition.getY());
                 } else {
                     this.actualPosition.move(0, this.actualPosition.getY());
                 }
                 break;
-            case DOWN:
+            case Direction.DOWN:
                 if (this.actualPosition.getY() < screenMeasurements.getHeight()) {
                     this.actualPosition.move(this.actualPosition.getX(), this.actualPosition.getY() + moveAmount);
                 } else {
                     this.actualPosition.move(this.actualPosition.getX(), 0);
                 }
                 break;
-            case LEFT:
+            case Direction.LEFT:
                 if (this.actualPosition.getX() > 0) {
                     this.actualPosition.move(this.actualPosition.getX() - moveAmount, this.actualPosition.getY());
                 } else {

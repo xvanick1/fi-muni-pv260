@@ -1,6 +1,6 @@
-package cz.muni.fi.muni.pv260.a01.GameEngine.Controller;
+package cz.muni.fi.pv260.a01.GameEngine.Controller;
 
-import cz.muni.fi.muni.pv260.a01.GameEngine.Direction;
+import cz.muni.fi.pv260.a01.GameEngine.Direction;
 
 public interface InputController {
     Direction getDirection();

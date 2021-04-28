@@ -1,4 +1,4 @@
-package cz.muni.fi.muni.pv260.a01.GameEngine.Controller;
+package cz.muni.fi.pv260.a01.GameEngine.Controller;
 
 import java.awt.event.KeyEvent;
 
