@@ -1,7 +1,5 @@
 package cz.muni.fi.muni.pv260.a01.Controller;
 
-import cz.muni.fi.muni.pv260.a01.Controller.KeyController.*;
-
 import java.awt.event.KeyEvent;
 
 public class ControllerBuilder {
