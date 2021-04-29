@@ -17,7 +17,7 @@ public class TronGame implements Game {
 	private static GameEngine gameEngine = new GameEngine();
 	private final int speed = 4;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		gameEngine.newGame(new TronGame());
 	}
 

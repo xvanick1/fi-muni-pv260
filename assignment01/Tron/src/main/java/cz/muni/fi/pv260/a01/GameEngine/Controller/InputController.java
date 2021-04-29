@@ -16,4 +16,27 @@ public interface InputController {
     void processEvent(Object e);
 
 
+    default void turnRight() {
+        if (getDirection().equals(RIGHT)) {
+            setDirection(DOWN);
+        } else if (getDirection().equals(DOWN)) {
+            setDirection(LEFT);
+        } else if (getDirection().equals(LEFT)) {
+            setDirection(UP);
+        } else if (getDirection().equals(UP)) {
+            setDirection(RIGHT);
+        }
+    }
+
+    default void turnLeft() {
+        if (getDirection().equals(RIGHT)) {
+            setDirection(UP);
+        } else if (getDirection().equals(UP)) {
+            setDirection(LEFT);
+        } else if (getDirection().equals(LEFT)) {
+            setDirection(DOWN);
+        } else if (getDirection().equals(DOWN)) {
+            setDirection(RIGHT);
+        }
+    }
 }

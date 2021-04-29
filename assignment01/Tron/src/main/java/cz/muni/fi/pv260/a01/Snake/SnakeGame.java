@@ -23,7 +23,7 @@ public class SnakeGame implements Game {
     private SnakeScreenManager snakeScreenManager;
     private static final GameEngine gameEngine= new GameEngine();
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws Exception {
         gameEngine.newGame(new SnakeGame());
     }
 

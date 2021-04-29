@@ -21,7 +21,7 @@ public class GameEngine{
 
 
 
-    public void run() {
+    public void run() throws Exception {
         try {
             setRunning(true);
             game.init();
@@ -63,7 +63,7 @@ public class GameEngine{
         }
     }
 
-    public void newGame(Game game) {
+    public void newGame(Game game) throws Exception {
         this.game=game;
         run();
     }

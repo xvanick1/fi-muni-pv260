@@ -71,27 +71,4 @@ public class MouseController implements InputController, MouseListener {
     public void mouseExited(MouseEvent e) {
     }
 
-    private void turnRight() {
-        if (getDirection().equals(RIGHT)) {
-            setDirection(DOWN);
-        } else if (getDirection().equals(DOWN)) {
-            setDirection(LEFT);
-        } else if (getDirection().equals(LEFT)) {
-            setDirection(UP);
-        } else if (getDirection().equals(UP)) {
-            setDirection(RIGHT);
-        }
-    }
-
-    private void turnLeft() {
-        if (getDirection().equals(RIGHT)) {
-            setDirection(UP);
-        } else if (getDirection().equals(UP)) {
-            setDirection(LEFT);
-        } else if (getDirection().equals(LEFT)) {
-            setDirection(DOWN);
-        } else if (getDirection().equals(DOWN)) {
-            setDirection(RIGHT);
-        }
-    }
 }
