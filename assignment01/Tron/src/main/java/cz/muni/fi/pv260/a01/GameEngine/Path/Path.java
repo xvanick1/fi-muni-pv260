@@ -1,4 +1,6 @@
-package cz.muni.fi.pv260.a01.GameEngine;
+package cz.muni.fi.pv260.a01.GameEngine.Path;
+
+import cz.muni.fi.pv260.a01.GameEngine.Point;
 
 import java.util.List;
 

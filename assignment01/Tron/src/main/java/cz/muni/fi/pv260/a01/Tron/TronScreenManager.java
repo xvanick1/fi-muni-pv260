@@ -1,6 +1,7 @@
 package cz.muni.fi.pv260.a01.Tron;
 
-import cz.muni.fi.pv260.a01.GameEngine.*;
+import cz.muni.fi.pv260.a01.GameEngine.Game.Game;
+import cz.muni.fi.pv260.a01.GameEngine.Player.Player;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManagerEngine;

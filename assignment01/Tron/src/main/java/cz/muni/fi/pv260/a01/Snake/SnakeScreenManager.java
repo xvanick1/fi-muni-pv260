@@ -1,6 +1,6 @@
 package cz.muni.fi.pv260.a01.Snake;
 
-import cz.muni.fi.pv260.a01.GameEngine.Game;
+import cz.muni.fi.pv260.a01.GameEngine.Game.Game;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManagerEngine;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;

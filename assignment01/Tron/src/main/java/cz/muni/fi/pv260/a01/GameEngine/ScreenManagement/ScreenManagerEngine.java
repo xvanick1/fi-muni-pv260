@@ -1,6 +1,6 @@
 package cz.muni.fi.pv260.a01.GameEngine.ScreenManagement;
 
-import cz.muni.fi.pv260.a01.GameEngine.GameEngine;
+import cz.muni.fi.pv260.a01.GameEngine.Game.GameEngine;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;

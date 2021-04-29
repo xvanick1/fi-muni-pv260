@@ -1,6 +1,6 @@
 package cz.muni.fi.pv260.a01.Snake;
 
-import cz.muni.fi.pv260.a01.GameEngine.PathImpl;
+import cz.muni.fi.pv260.a01.GameEngine.Path.PathImpl;
 
 /**
  * @author Jozef Vanický

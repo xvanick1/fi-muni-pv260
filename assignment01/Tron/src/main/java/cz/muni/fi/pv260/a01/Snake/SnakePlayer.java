@@ -1,5 +1,5 @@
 package cz.muni.fi.pv260.a01.Snake;
-import cz.muni.fi.pv260.a01.GameEngine.PlayerImpl;
+import cz.muni.fi.pv260.a01.GameEngine.Player.PlayerImpl;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
 
 import java.util.List;

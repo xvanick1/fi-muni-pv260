@@ -1,4 +1,4 @@
-package cz.muni.fi.pv260.a01.GameEngine;
+package cz.muni.fi.pv260.a01.GameEngine.Game;
 
 public class GameTimer {
     private long startTime = System.currentTimeMillis();

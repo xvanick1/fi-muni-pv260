@@ -1,6 +1,6 @@
 package cz.muni.fi.pv260.a01.Tron;
 
-import cz.muni.fi.pv260.a01.GameEngine.PlayerImpl;
+import cz.muni.fi.pv260.a01.GameEngine.Player.PlayerImpl;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
 
 public class TronPlayer extends PlayerImpl {

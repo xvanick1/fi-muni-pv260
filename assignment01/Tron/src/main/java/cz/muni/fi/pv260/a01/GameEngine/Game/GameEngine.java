@@ -1,4 +1,6 @@
-package cz.muni.fi.pv260.a01.GameEngine;
+package cz.muni.fi.pv260.a01.GameEngine.Game;
+
+import cz.muni.fi.pv260.a01.GameEngine.Player.Player;
 
 import java.awt.*;
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
-package cz.muni.fi.pv260.a01.GameEngine;
+package cz.muni.fi.pv260.a01.GameEngine.Game;
 
 import cz.muni.fi.pv260.a01.GameEngine.Controller.InputController;
+import cz.muni.fi.pv260.a01.GameEngine.Direction;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
 
 import java.awt.*;
