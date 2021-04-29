@@ -7,7 +7,7 @@ import java.awt.*;
 
 public interface Game {
 
-    void init();
+    void init() throws Exception;
 
     void updateGame();
 

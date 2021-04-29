@@ -27,6 +27,11 @@ public class KeyController implements InputController, KeyListener {
     }
 
     @Override
+    public void setDirection(Direction direction) {
+        this.direction=direction;
+    }
+
+    @Override
     public void processEvent(Object e) {
 
         int keyPressed;

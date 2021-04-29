@@ -9,6 +9,7 @@ import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 public class SnakeGame implements Game {
@@ -27,9 +28,9 @@ public class SnakeGame implements Game {
     }
 
 
-    public void init() {
+    public void init() throws Exception {
         snakeScreenManager= new SnakeScreenManager();
-        createPlayer(600, 440, Direction.LEFT, Color.GREEN, ControllerBuilder.newArrowsController());
+        createPlayer(600, 440, Direction.LEFT, Color.GREEN, ControllerBuilder.newMouseController());
         snakePlayer = (SnakePlayer) gameEngine.getPlayers().get(0);
 
         DisplayMode displayMode = snakeScreenManager.findFirstCompatibleMode(GameEngine.getModes());
@@ -42,8 +43,11 @@ public class SnakeGame implements Game {
         if(this.snakePlayer.getController() instanceof KeyListener){
             w.addKeyListener((KeyListener) this.snakePlayer.getController());
         }
-        else{
-            System.out.println("Mistake");
+        else if(snakePlayer.getController() instanceof MouseListener){
+            w.addMouseListener( (MouseListener) snakePlayer.getController());
+        }
+        else {
+            throw new Exception("Unknown controller Mistake");
         }
         generateNewPointForEating();
     }

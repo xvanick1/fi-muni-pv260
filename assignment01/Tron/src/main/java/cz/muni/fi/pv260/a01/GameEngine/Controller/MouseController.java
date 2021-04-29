@@ -22,6 +22,11 @@ public class MouseController implements InputController, MouseListener {
     }
 
     @Override
+    public void setDirection(Direction direction) {
+        this.direction=direction;
+    }
+
+    @Override
     public void processEvent(Object e) {
 
         int keyPressed;
@@ -32,27 +37,13 @@ public class MouseController implements InputController, MouseListener {
         }
 
         if (keyPressed == LEFTMOUSEBUTTON) {
-            if (direction.equals(RIGHT)) {
-                direction = UP;
-            } else if (direction.equals(UP)) {
-                direction = LEFT;
-            } else if (direction.equals(LEFT)) {
-                direction = DOWN;
-            } else if (direction.equals(DOWN)) {
-                direction = RIGHT;
-            }
+            turnLeft();
         } else if (keyPressed == RIGHTMOUSEBUTTON) {
-            if (direction.equals(RIGHT)) {
-                direction = DOWN;
-            } else if (direction.equals(DOWN)) {
-                direction = LEFT;
-            } else if (direction.equals(LEFT)) {
-                direction = UP;
-            } else if (direction.equals(UP)) {
-                direction = RIGHT;
-            }
+            turnRight();
         }
     }
+
+
 
     @Override
     public void setInitialDirection(Direction direction) {
@@ -78,5 +69,29 @@ public class MouseController implements InputController, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    private void turnRight() {
+        if (getDirection().equals(RIGHT)) {
+            setDirection(DOWN);
+        } else if (getDirection().equals(DOWN)) {
+            setDirection(LEFT);
+        } else if (getDirection().equals(LEFT)) {
+            setDirection(UP);
+        } else if (getDirection().equals(UP)) {
+            setDirection(RIGHT);
+        }
+    }
+
+    private void turnLeft() {
+        if (getDirection().equals(RIGHT)) {
+            setDirection(UP);
+        } else if (getDirection().equals(UP)) {
+            setDirection(LEFT);
+        } else if (getDirection().equals(LEFT)) {
+            setDirection(DOWN);
+        } else if (getDirection().equals(DOWN)) {
+            setDirection(RIGHT);
+        }
     }
 }

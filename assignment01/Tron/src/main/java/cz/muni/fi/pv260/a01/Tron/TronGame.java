@@ -22,7 +22,7 @@ public class TronGame implements Game {
 	}
 
 	@Override
-	public void init() {
+	public void init() throws Exception {
 		tronScreenManager= new TronScreenManager();
 		DisplayMode displayMode = tronScreenManager.findFirstCompatibleMode(GameEngine.getModes());
 		tronScreenManager.setFullScreen(displayMode);
@@ -31,15 +31,18 @@ public class TronGame implements Game {
 		w.setForeground(Color.RED);
 		w.setCursor(w.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new java.awt.Point(0, 0),"null"));
 
-		createPlayer(600, 440, Direction.LEFT, Color.RED, ControllerBuilder.newArrowsController());
+		createPlayer(600, 440, Direction.LEFT, Color.RED, ControllerBuilder.newMouseController());
 		createPlayer(40, 40, Direction.RIGHT, Color.GREEN, ControllerBuilder.newWASDController());
 
 		for(Player player :gameEngine.getPlayers()){
 			if(player.getController() instanceof KeyListener){
 				w.addKeyListener( (KeyListener) player.getController());
 			}
-			if(player.getController() instanceof MouseListener){
+			else if(player.getController() instanceof MouseListener){
 				w.addMouseListener( (MouseListener) player.getController());
+			}
+			else{
+				throw new Exception("Unknown controller Mistake");
 			}
 		}
 	}
