@@ -6,6 +6,7 @@ import cz.muni.fi.pv260.a01.GameEngine.Direction;
 import cz.muni.fi.pv260.a01.GameEngine.Game;
 import cz.muni.fi.pv260.a01.GameEngine.GameEngine;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManagerEngine;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
@@ -33,12 +34,7 @@ public class SnakeGame implements Game {
         createPlayer(600, 440, Direction.LEFT, Color.GREEN, ControllerBuilder.newMouseController());
         snakePlayer = (SnakePlayer) gameEngine.getPlayers().get(0);
 
-        DisplayMode displayMode = snakeScreenManager.findFirstCompatibleMode(GameEngine.getModes());
-        snakeScreenManager.setFullScreen(displayMode);
-        Window w= snakeScreenManager.getFullScreenWindow();
-        w.setBackground(Color.WHITE);
-        w.setForeground(Color.RED);
-        w.setCursor(w.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new java.awt.Point(0, 0),"null"));
+        Window w = snakeScreenManager.initializeGameGraphics(snakeScreenManager);
 
         if(this.snakePlayer.getController() instanceof KeyListener){
             w.addKeyListener((KeyListener) this.snakePlayer.getController());

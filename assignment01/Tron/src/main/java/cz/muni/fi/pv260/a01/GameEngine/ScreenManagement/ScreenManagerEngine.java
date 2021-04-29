@@ -1,7 +1,10 @@
 package cz.muni.fi.pv260.a01.GameEngine.ScreenManagement;
 
+import cz.muni.fi.pv260.a01.GameEngine.GameEngine;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
@@ -85,5 +88,15 @@ public class ScreenManagerEngine {
 
 	public DisplayMode findFirstCompatibleMode(DisplayMode[] modes) {
 		return displayModesManager.findFirstCompatibleMode(modes);
+	}
+
+	public Window initializeGameGraphics(ScreenManager screenManager) {
+		DisplayMode displayMode = screenManager.findFirstCompatibleMode(GameEngine.getModes());
+		screenManager.setFullScreen(displayMode);
+		Window w= screenManager.getFullScreenWindow();
+		w.setBackground(Color.WHITE);
+		w.setForeground(Color.RED);
+		w.setCursor(w.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),"null"));
+		return w;
 	}
 }

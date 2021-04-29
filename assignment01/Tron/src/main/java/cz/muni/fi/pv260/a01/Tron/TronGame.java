@@ -6,6 +6,7 @@ import cz.muni.fi.pv260.a01.GameEngine.Controller.InputController;
 import cz.muni.fi.pv260.a01.GameEngine.*;
 import cz.muni.fi.pv260.a01.GameEngine.Point;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
+import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManagerEngine;
 
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
@@ -24,12 +25,8 @@ public class TronGame implements Game {
 	@Override
 	public void init() throws Exception {
 		tronScreenManager= new TronScreenManager();
-		DisplayMode displayMode = tronScreenManager.findFirstCompatibleMode(GameEngine.getModes());
-		tronScreenManager.setFullScreen(displayMode);
-		Window w= tronScreenManager.getFullScreenWindow();
-		w.setBackground(Color.WHITE);
-		w.setForeground(Color.RED);
-		w.setCursor(w.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new java.awt.Point(0, 0),"null"));
+
+		Window w = tronScreenManager.initializeGameGraphics(tronScreenManager);
 
 		createPlayer(600, 440, Direction.LEFT, Color.RED, ControllerBuilder.newMouseController());
 		createPlayer(40, 40, Direction.RIGHT, Color.GREEN, ControllerBuilder.newWASDController());

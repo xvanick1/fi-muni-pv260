@@ -88,4 +88,8 @@ public class TronScreenManager implements ScreenManager {
         return new ScreenMeasurements(this.getHeight(),this.getWidth());
     }
 
+    @Override
+    public Window initializeGameGraphics(ScreenManager screenManager) {
+        return screenManagerEngine.initializeGameGraphics(screenManager);
+    }
 }

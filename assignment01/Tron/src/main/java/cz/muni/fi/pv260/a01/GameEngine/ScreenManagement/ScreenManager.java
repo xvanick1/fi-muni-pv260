@@ -22,4 +22,6 @@ public interface ScreenManager {
     int getHeight();
 
     ScreenMeasurements getMeasurements();
+
+    Window initializeGameGraphics(ScreenManager screenManager);
 }

@@ -88,4 +88,9 @@ public class SnakeScreenManager implements ScreenManager {
     public ScreenMeasurements getMeasurements() {
         return new ScreenMeasurements(this.getHeight(),this.getWidth());
     }
+
+    @Override
+    public Window initializeGameGraphics(ScreenManager screenManager) {
+        return screenManagerEngine.initializeGameGraphics(screenManager);
+    }
 }
