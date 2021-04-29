@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class TronGame implements Game {
-	protected TronScreenManager tronScreenManager;
+	private TronScreenManager tronScreenManager;
 	private static GameEngine gameEngine = new GameEngine();
 	private final int speed = 4;
 
