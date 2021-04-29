@@ -2,6 +2,7 @@ package cz.muni.fi.pv260.a01.GameEngine.ScreenManagement;
 
 import java.awt.Image;
 import java.util.ArrayList;
+
 public class Animation {
 	
 	private ArrayList scenes;

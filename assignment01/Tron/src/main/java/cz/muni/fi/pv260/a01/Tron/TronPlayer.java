@@ -6,12 +6,9 @@ import cz.muni.fi.pv260.a01.GameEngine.Point;
 public class TronPlayer extends PlayerImpl {
     private TronPath traveledPath;
 
-
     public TronPlayer() {
         this.traveledPath = new TronPath();
     }
-
-
 
     @Override
     public void addCurrentPositionToPath() {

@@ -1,6 +1,5 @@
 package cz.muni.fi.pv260.a01.GameEngine;
 
-
 import java.util.List;
 
 public interface Path {

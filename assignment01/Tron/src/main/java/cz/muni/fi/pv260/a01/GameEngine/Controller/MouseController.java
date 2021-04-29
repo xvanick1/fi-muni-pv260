@@ -5,8 +5,6 @@ import cz.muni.fi.pv260.a01.GameEngine.Direction;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static cz.muni.fi.pv260.a01.GameEngine.Direction.*;
-
 public class MouseController implements InputController, MouseListener {
 
     private Direction direction;

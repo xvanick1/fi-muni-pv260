@@ -6,12 +6,10 @@ import cz.muni.fi.pv260.a01.GameEngine.Direction;
 import cz.muni.fi.pv260.a01.GameEngine.Game;
 import cz.muni.fi.pv260.a01.GameEngine.GameEngine;
 import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManager;
-import cz.muni.fi.pv260.a01.GameEngine.ScreenManagement.ScreenManagerEngine;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 
 public class SnakeGame implements Game {
 
