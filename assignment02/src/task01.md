@@ -1,7 +1,7 @@
 # Task01 
 
 ## Statement of the testers  
-Specification is buggy. It says "f  you  enter  non-empty  First  Name  and  Last  Name,  the  following  Output  is shown on the site", which mean that output should be shown without clicking on "Show output" button. We assume that we do not want solution where after each filled letter into forms, output will be actualized, most of the forms online do not work like that. So our assumption is that button for confirming the form, and requesting the output is missing in the specification.
+Specification is buggy. It says "If  you  enter  non-empty  First  Name  and  Last  Name,  the  following  Output  is shown on the site", which mean that output should be shown without clicking on "Show output" button. We assume that we do not want solution where after each filled letter into forms, output will be actualized, most of the forms online do not work like that. So our assumption is that button for confirming the form, and requesting the output is missing in the specification.
 
 Specification is incomplete on details about cases when one of the forms, or both of them are empty, if we asume, that both of the textBoxes should be filled up, we would run (8,9,10) tests too.  
 Specification is incomplete on formats of last name and first name we want to accept.  
