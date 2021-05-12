@@ -37,7 +37,16 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 1. Notification about order/product availability
 
 ## Capabilities
-- 
+1. Filtering products
+1. Listing products
+1. Show product detail 
+1. Real-time, customer specific pricing 
+1. Quick order & reorder/auto-replenishment
+1. Bundle and tiered pricing
+1. Future stock availability
+1. Customer self-service and administration
+1. Invoice and credit reporting
+1. Products reviews
 
 ## Test cases
 - 
