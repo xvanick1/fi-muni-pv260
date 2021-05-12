@@ -96,6 +96,23 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. Go to the cart.
 >  1. Was product quantity incremented?
 
+### User login
+>  1. Enter valid username and password of existing username, click login button -> user should be logged in
+>  1. Enter valid username and invalid password of existing username, click login button -> user should not be logged in
+>  1. Enter invalid username and valid password of existing username, click login button -> user should not be logged in
+>  1. Enter valid username and click login button -> user should not be logged in
+>  1. Enter valid password and click login button -> user should not be logged in
+>  1. Enter valid username and valid password and click login button -> password should be encrypted in system
+>  1. Enter valid username and click login button -> user should not be logged in
+>  1. Enter empty username and valid password of existing username, click login button -> Error message should tell that blank space needs to be filled
+>  1. Enter valid username and empty password of existing username, click login button -> Error message should tell that blank space needs to be filled
+>  1. Click "Forgot password" and enter invalid username when prompted -> Nothing should happen
+>  1. Click "Forgot password" and enter valid username when prompted -> Email with link for password reset should have been sent
+>  1. Go on password reset link. Enter previous password as new password. Click on "confirm new password" button -> Error message should appear
+>  1. Go on password reset link. Enter new password and click on "confirm new password" button -> User new password should work
+>  1. Go on password reset link. Enter new password which do not cover basic requirements and click on "confirm new password" button -> User new password should work
+>  1. Go on password reset link after link was used once already. -> Error message should appear
+
 ## The most risky clusters of impact
 - 
 
