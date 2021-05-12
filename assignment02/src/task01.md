@@ -3,8 +3,8 @@
 ## Statement of the testers  
 Specification is incomplete on details about cases when one of the forms, or both of them are empty, if we asume, that both of the textBoxes should be filled up, we would run (8,9,10) tests too.  
 Specification is incomplete on formats of last name and first name we want to accept.  
-- *(Do we want to accept numbers, signs, comas, whitespaces, etc. ?), if yes, we would also need tests for these constraints.*  
-- *(Should every last name and last name start with Uppercase? ), if yes we would also need tests for these contraints.*  
+- *Do we want to accept numbers, signs, comas, whitespaces, etc. ? If yes, we would also need tests for these constraints.*  
+- *Should every last name and last name start with Uppercase? If yes we would also need tests for these contraints.*  
 
 
 ### Test 1 
