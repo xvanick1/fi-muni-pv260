@@ -20,7 +20,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### Test 2
 
-**FAIL (Bad format - "Your are[number] cm high." instead of "You are [number] cm high."  )**
+**FAIL (Bad format - "Your are[number] cm high." instead of "You are [number] cm high."  )**  
 **Descritption: Testing second sentence format.**
 ***
 
@@ -31,7 +31,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### Test 3
 **FAIL (Random values out of 140-190 interval)**  
-
+**Descritption: Testing height interval.**
 ***
 
 > *Input: first text Box = "Michal", second text box = "Kovac" (click Show output few times and save the output height values)*  
@@ -41,7 +41,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Additional description: Most of the values fall into interval 100-150. Constant 100 in script should be changed to 140.*  
 
 ### Test 4
-**FAIL**
+**FAIL**  
 **Descritption: Testing first name and last name whitespaces.**
 ***
 
@@ -51,7 +51,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Actual output: Your name is Michal Kovac . You are[140-190] cm high.*  
 
 ### Test 5
-**FAIL**
+**FAIL**  
 **Descritption: Testing last name whitespaces.**
 ***
 
@@ -61,7 +61,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Actual output: Your name is Michal Kovac . You are[140-190] cm high.*  
 
 ### Test 6
-**SUCCESS**
+**SUCCESS**  
 **Descritption: Testing first name whitespaces.**
 ***
 
@@ -72,7 +72,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 
 ### TEST 7
-**FAIL**  
+**FAIL**   
 **Descritption: Testing first text box empty value.**
 ***
 
@@ -82,7 +82,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Actual output: Your name is Kovac. You are[140-190] cm high.*  
 		       
 ### Test 8
-**FAIL**
+**FAIL**  
 **Descritption: Testing second text box empty value.**
 ***
 
