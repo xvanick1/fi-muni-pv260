@@ -17,6 +17,7 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 - Discusion with team
 - Alfa/Beta testing
 - Analysis of project
+- Analysis of the market
 
 ## Components
 - 
