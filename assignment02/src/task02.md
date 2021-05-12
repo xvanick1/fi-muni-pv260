@@ -81,7 +81,20 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. Confirm order.
 >  1. Check that email with order confirmation was received at listed mail.
 
-
+### Product details
+>  1. Open a specific product page.
+>  1. Does this page display all the product related information (e.g. product name, code, price, discount if any, product images, product specifications, user reviews, Add to Cart button, quantity changer etc) as expected?
+>  1. If the product parameters are customizable, change its available parameters randomly.
+>  1. Can the user select required number of items using the quantity selector? If yes, change the product quantity.
+>  1. Does this page show the stock availability accurately?
+>  1. Is there "add to card button"? 
+>  1. Add the product to card by clicking.
+>  1. Does this product gets added to cart when added?
+>  1. Does the quantity in cart get updated when the product is added to cart?
+>  1. Go again to the product page.
+>  1. Add the product to the cart.
+>  1. Go to the cart.
+>  1. Was product quantity incremented?
 
 ## The most risky clusters of impact
 - 
