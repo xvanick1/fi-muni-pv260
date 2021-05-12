@@ -1,7 +1,7 @@
 # Task01 
 
 ## Statement of the testers  
-Specification is incomplete on details about cases when one of the forms, or both of them are empty, if we asume, that both of the textBoxes should be filled up, we would run (7,8,9) tests too.  
+Specification is incomplete on details about cases when one of the forms, or both of them are empty, if we asume, that both of the textBoxes should be filled up, we would run (8,9,10) tests too.  
 Specification is incomplete on formats of last name and first name we want to accept.  
 - *(Do we want to accept numbers, signs, comas, whitespaces, etc. ?), if yes, we would also need tests for these constraints.*  
 - *(Should every last name and last name start with Uppercase? ), if yes we would also need tests for these contraints.*  
@@ -70,8 +70,18 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Expected output: Your name is Michal Kovac. You are [number] cm high.*  
 > *Actual output: Your name is Michal Kovac. You are[number] cm high.*  
 
+### Test 7
 
-### TEST 7
+ **SUCCESS**  
+ **Descritption: Testing special characters.**  
+ ***
+ 
+ > *Input: first text Box = "Michal", second text box = "Aľščťžýáíéúô"*  
+ > 
+ > *Expected output: ... Michal Aľščťžýáíéúô. You ...*  
+ > *Actual output:   ... Michal Aľščťžýáíéúô. You ...*  
+ 
+### TEST 8
 **FAIL**   
 **Descritption: Testing first text box empty value.**
 ***
@@ -81,7 +91,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Expected output: Your first name is missing.*  
 > *Actual output: Your name is Kovac. You are[number] cm high.*  
 		       
-### Test 8
+### Test 9
 **FAIL**  
 **Descritption: Testing second text box empty value.**
 ***
@@ -91,9 +101,9 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Expected output: Your last name is missing*  
 > *Actual output: Your name is Michal . You are[number] cm high.*  
 
-### Test 9
-**FAIL**
-**Descritption: Testing first text box empty value and second text box empty value at once.**
+### Test 10
+**FAIL**  
+**Descritption: Testing first text box empty value and second text box empty value at once.**  
 ***
 
 > *Input: first text Box = "", second text box = ""*  
