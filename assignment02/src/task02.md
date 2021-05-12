@@ -138,3 +138,7 @@
 - Consultations with security experts.
 - Analysis of the ISP market and their service offerings.
 - Hire e-shop development consultants.
+
+**Why we chosen these minimizations of chances that there are other clusters of impact we do not see**
+- 
+- 
