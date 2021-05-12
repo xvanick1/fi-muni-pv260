@@ -41,7 +41,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Additional description: Most of the values fall into interval 100-150. Constant 100 in script should be changed to 140.*  
 
 ### Test 4
-**FAIL**  
+**FAIL (Space after Kovac is redundant)**  
 **Descritption: Testing first name and last name whitespaces.**
 ***
 
@@ -51,7 +51,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Actual output: Your name is Michal Kovac . You are[number] cm high.*  
 
 ### Test 5
-**FAIL**  
+**FAIL (Space after Kovas is redundant)**  
 **Descritption: Testing last name whitespaces.**
 ***
 
@@ -82,7 +82,7 @@ Specification is incomplete on formats of last name and first name we want to ac
  > *Actual output:   ... Michal Aľščťžýáíéúô. You ...*  
  
 ### TEST 8
-**FAIL**   
+**FAIL (Empty first text box accepted)**   
 **Descritption: Testing first text box empty value.**
 ***
 
@@ -92,7 +92,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Actual output: Your name is Kovac. You are[number] cm high.*  
 		       
 ### Test 9
-**FAIL**  
+**FAIL (Empty second text box accepted)**  
 **Descritption: Testing second text box empty value.**
 ***
 
@@ -102,7 +102,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Actual output: Your name is Michal . You are[number] cm high.*  
 
 ### Test 10
-**FAIL**  
+**FAIL (Both empty text boxs accepted)**  
 **Descritption: Testing first text box empty value and second text box empty value at once.**  
 ***
 
