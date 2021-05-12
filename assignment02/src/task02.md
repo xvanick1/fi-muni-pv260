@@ -114,5 +114,16 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. Go on password reset link after link was used once already. -> Error message should appear
 
 ## The most risky clusters of impact
-- 
-
+>  1. System reliability
+    - Server of the internet service provider could crash, e-shop payment system could show errors, database could crash or get into an inconsistent state.
+>  1. Privacy issues
+    - Personal data of customers and their credit cards could be compromised, used for spamming, theft of finances, and an identity theft could occur.
+>  1. Warranty and return of goods
+    - Problems when dealing with returned products. Increase of the costs of supply chain. Unable to sell used product for atleast purchase price without loss.
+>  1. Disputes of customers
+    - Dealing with angry customers who did not received their product. Online description of the product differs from their purchased product. Customers were charged twice or they were charged wrong price/price without applicable discount. Delivery of customers pre-ordered product is being extended.
+>  1. Security
+    - Malwares, phishing, spam, hacking, ddos.
+>  1. Logistics
+    - Running out of stock of the product, while many orders are being processed. Delivery of the product to incorrect recipient. Product is being damaged during delivery.
+>  1. 
