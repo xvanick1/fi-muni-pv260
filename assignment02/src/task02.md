@@ -63,6 +63,14 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. Apply coupons.
 >  1. Don’t check out, close the site, and come back later. The site should retain the items in the cart.
 
+### Payment options
+>  1. Check different payment options.
+>  1. If allowing check out as Guest, simply finish the purchase and provide an option to register at the end.
+>  1. Returning customers – Login to check out.
+>  1. User sign up.
+>  1. If storing customer Credit card or any other financial information, perform security testing around this to make sure it is secure.(PCI compliance is a must).
+>  1. If the user is signed up for a long time, make sure the session is timed out or not. Every site has a different threshold. For some, it is 10 minutes. For some, it might be different.
+>  1. Emails/Text confirmation with the order number and invoice generated.
 
 ## The most risky clusters of impact
 - 
