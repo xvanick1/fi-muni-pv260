@@ -15,8 +15,8 @@ Specification is incomplete on formats of last name and first name we want to ac
  
  > *Input: first text Box = "Michal", second text box = "Kovac"*  
  > 
- > *Expected output: Your are Michal Kovac. You are [140-190] cm high.*  
- > *Actual output: Your name is Michal Kovac. You are[140-190] cm high.*  
+ > *Expected output: Your are Michal Kovac. You are [number] cm high.*  
+ > *Actual output: Your name is Michal Kovac. You are[number] cm high.*  
 
 ### Test 2
 
@@ -47,8 +47,8 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 > *Input: first text Box = "                 Michal               ", second text box = "            Kovac               "*  
 > 
-> *Expected output: Your name is Michal Kovac. You are [140-190] cm high.*  
-> *Actual output: Your name is Michal Kovac . You are[140-190] cm high.*  
+> *Expected output: Your name is Michal Kovac. You are [number] cm high.*  
+> *Actual output: Your name is Michal Kovac . You are[number] cm high.*  
 
 ### Test 5
 **FAIL**  
@@ -57,8 +57,8 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 > *Input: first text Box = "Michal", second text box = "               Kovac               "*  
 > 
-> *Expected output: Your name is Michal Kovac. You are [140-190] cm high.*  
-> *Actual output: Your name is Michal Kovac . You are[140-190] cm high.*  
+> *Expected output: Your name is Michal Kovac. You are [number] cm high.*  
+> *Actual output: Your name is Michal Kovac . You are[number] cm high.*  
 
 ### Test 6
 **SUCCESS**  
@@ -67,8 +67,8 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 > *Input: first text Box = "               Michal               ", second text box = "Kovac"*  
 > 
-> *Expected output: Your name is Michal Kovac. You are [140-190] cm high.*  
-> *Actual output: Your name is Michal Kovac. You are[140-190] cm high.*  
+> *Expected output: Your name is Michal Kovac. You are [number] cm high.*  
+> *Actual output: Your name is Michal Kovac. You are[number] cm high.*  
 
 
 ### TEST 7
@@ -79,7 +79,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Input: first text Box = "", second text box = "Kovac"*  
 > 
 > *Expected output: Your first name is missing.*  
-> *Actual output: Your name is Kovac. You are[140-190] cm high.*  
+> *Actual output: Your name is Kovac. You are[number] cm high.*  
 		       
 ### Test 8
 **FAIL**  
@@ -89,7 +89,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Input: first text Box = "Michal", second text box = ""*  
 > 
 > *Expected output: Your last name is missing*  
-> *Actual output: Your name is Michal . You are[140-190] cm high.*  
+> *Actual output: Your name is Michal . You are[number] cm high.*  
 
 ### Test 9
 **FAIL**
@@ -99,5 +99,5 @@ Specification is incomplete on formats of last name and first name we want to ac
 > *Input: first text Box = "", second text box = ""*  
 > 
 > *Expected output: Your first name is missing. || Your last name is missing. || Your first name and second name are missing.*  
-> *Actual output: Your name is . You are[140-190] cm high.*  
+> *Actual output: Your name is . You are[number] cm high.*  
 
