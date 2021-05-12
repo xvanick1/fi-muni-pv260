@@ -9,6 +9,10 @@
 - Effective use of user data and his behaviour to offer suitable products
 - Stability under load
 
+** Why we chosen those attributes**
+- 
+
+
 ** Minimizing chances that there are other attributes we do not see, but are of higher importance than selected **
 - Discusion with team
 - Alfa/Beta testing
