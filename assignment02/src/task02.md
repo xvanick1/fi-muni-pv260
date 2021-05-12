@@ -3,10 +3,16 @@
 ## Attributes
 - Fast load time
 - Secure payment network
-- Clear easy navigation and design
-- Appealing aesthetics
+- Clear easy appealing navigation and design
 - Good brand
+- Multiplatform availability
 - Effective use of user data and his behaviour to offer suitable products
+- Stability under load
+
+** Minimizing chances that there are other attributes we do not see, but are of higher importance than selected **
+- Discusion with team
+- Alfa/Beta testing
+- Analysis of project
 
 ## Components
 - 
