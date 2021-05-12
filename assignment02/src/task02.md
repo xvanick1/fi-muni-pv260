@@ -140,5 +140,6 @@
 - Hire e-shop development consultants.
 
 **Why we chosen these minimizations of chances that there are other clusters of impact we do not see**
-- 
-- 
+- We studied web advices on operating an eshop
+- We know that laws, security and logistic are not our domains, so experts and some advices for those fields will be needed
+- We have som own experiences from work and school with running some projects for a longer periods
