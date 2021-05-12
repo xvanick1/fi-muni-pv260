@@ -1,8 +1,9 @@
 
-Test 1 - FAIL (Bad format - "Your name is" instead of "You are"  )
-    Input: first text Box = "Michal", second text box = "Kovac"
-    Expected output: Your are Michal Kovac. You are [140-190] cm high. 
-    Actual output: Your name is Michal Kovac. You are[140-190] cm high.
+##Test 1 
+	- FAIL (Bad format - "Your name is" instead of "You are"  )
+	- Input: first text Box = "Michal", second text box = "Kovac"
+	- Expected output: Your are Michal Kovac. You are [140-190] cm high. 
+	- Actual output: Your name is Michal Kovac. You are[140-190] cm high.
 
 Test 2 - FAIL (Bad format - "Your are[number] cm high." instead of "You are [number] cm high."  )
     Input: first text Box = "Michal", second text box = "Kovac"
