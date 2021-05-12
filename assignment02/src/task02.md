@@ -72,6 +72,18 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. If the user is signed up for a long time, make sure the session is timed out or not. Every site has a different threshold. For some, it is 10 minutes. For some, it might be different.
 >  1. Emails/Text confirmation with the order number and invoice generated.
 
+### Create order
+>  1. Fill up the shopping cart
+>  1. Fill up First name, Last name, email, phone number, city, street, number, Postal code
+>  1. Try to create orders with empty First name, Last name, email, phone number, city, street, number, Postal code - every test should fail
+>  1. Try to check and fill up data for firm order
+>  1. Click next step
+>  1. Confirmation of the order should appear
+>  1. Confirm order
+>  1. Check that email with order confirmation was received at listed mail
+
+
+
 ## The most risky clusters of impact
 - 
 
