@@ -1,13 +1,13 @@
 # Task02
 
 ## Attributes
-- Fast load time
-- Secure payment network
-- Clear easy appealing navigation and design
-- Good brand
-- Multiplatform availability
-- Effective use of user data and his behaviour to offer suitable products
-- Stability under load
+1. Fast load time
+1. Secure payment network
+1. Clear easy appealing navigation and design
+1. Good brand
+1. Multiplatform availability
+1. Effective use of user data and his behaviour to offer suitable products
+1. Stability under load
 
 **Why we chosen these attributes**  
 - We most often see the features of these attributes in many existing e-shops. 
@@ -20,7 +20,21 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 - Analysis of the market
 
 ## Components
-- 
+1. Intuitive shopping cart
+1. Product component
+1. Product filter
+1. Product comparing tool
+1. User control panel
+1. Navigation menu
+1. Payment gateway
+1. Discounts for different types of users
+1. Lastly watched & recommended products
+1. Search
+1. Order details
+1. Contacts
+1. Pick-up points
+1. History of orders
+1. Notification about order/product availability
 
 ## Capabilities
 - 
