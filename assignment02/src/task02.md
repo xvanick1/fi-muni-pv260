@@ -55,8 +55,8 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. If the user adds the same item to the cart while continuing to shop, the item count in the shopping cart should get incremented.
 >  1. All items and their totals should be displayed in the cart.
 >  1. Taxes as per location should be applied.
->  1. A user can add more items to the cart- total should reflect the same.
->  1. Update the contents added to the cart- total should reflect that too.
+>  1. A user can add more items to the cart - total should reflect the same.
+>  1. Update the contents added to the cart - total should reflect that.
 >  1. Remove items from the cart.
 >  1. Proceed to checkout.
 >  1. Calculate Shipping costs with different shipping options.
@@ -68,19 +68,18 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 >  1. If allowing check out as Guest, simply finish the purchase and provide an option to register at the end.
 >  1. Returning customers – Login to check out.
 >  1. User sign up.
->  1. If storing customer Credit card or any other financial information, perform security testing around this to make sure it is secure.(PCI compliance is a must).
 >  1. If the user is signed up for a long time, make sure the session is timed out or not. Every site has a different threshold. For some, it is 10 minutes. For some, it might be different.
 >  1. Emails/Text confirmation with the order number and invoice generated.
 
 ### Create order
 >  1. Fill up the shopping cart
->  1. Fill up First name, Last name, email, phone number, city, street, number, Postal code
->  1. Try to create orders with empty First name, Last name, email, phone number, city, street, number, Postal code - every test should fail
->  1. Try to check and fill up data for firm order
->  1. Click next step
->  1. Confirmation of the order should appear
->  1. Confirm order
->  1. Check that email with order confirmation was received at listed mail
+>  1. Fill up First name, Last name, email, phone number, city, street, number, Postal code.
+>  1. Try to create orders with empty First name, Last name, email, phone number, city, street, number, Postal code - every test should fail.
+>  1. Try to check and fill up data for firm order.
+>  1. Click next step.
+>  1. Confirmation of the order should appear.
+>  1. Confirm order.
+>  1. Check that email with order confirmation was received at listed mail.
 
 
 
