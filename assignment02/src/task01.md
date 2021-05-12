@@ -8,9 +8,9 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 
 ### Test 1 
-** Descritption: Testing first sentence format.**  
+
  **FAIL (Bad format - "Your name is" instead of "You are"  )**  
- 
+ **Descritption: Testing first sentence format.**  
  ***
  
  > *Input: first text Box = "Michal", second text box = "Kovac"*  
@@ -19,8 +19,9 @@ Specification is incomplete on formats of last name and first name we want to ac
  > *Actual output: Your name is Michal Kovac. You are[140-190] cm high.*  
 
 ### Test 2
-**FAIL (Bad format - "Your are[number] cm high." instead of "You are [number] cm high."  )**
 
+**FAIL (Bad format - "Your are[number] cm high." instead of "You are [number] cm high."  )**
+**Descritption: Testing second sentence format.**
 ***
 
 > *Input: first text Box = "Michal", second text box = "Kovac"*  
@@ -41,7 +42,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### Test 4
 **FAIL**
-
+**Descritption: Testing first name and last name whitespaces.**
 ***
 
 > *Input: first text Box = "                 Michal               ", second text box = "            Kovac               "*  
@@ -51,7 +52,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### Test 5
 **FAIL**
-
+**Descritption: Testing last name whitespaces.**
 ***
 
 > *Input: first text Box = "Michal", second text box = "               Kovac               "*  
@@ -61,7 +62,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### Test 6
 **SUCCESS**
-
+**Descritption: Testing first name whitespaces.**
 ***
 
 > *Input: first text Box = "               Michal               ", second text box = "Kovac"*  
@@ -72,7 +73,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### TEST 7
 **FAIL**  
-
+**Descritption: Testing first text box empty value.**
 ***
 
 > *Input: first text Box = "", second text box = "Kovac"*  
@@ -82,7 +83,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 		       
 ### Test 8
 **FAIL**
-
+**Descritption: Testing second text box empty value.**
 ***
 
 > *Input: first text Box = "Michal", second text box = ""*  
@@ -92,7 +93,7 @@ Specification is incomplete on formats of last name and first name we want to ac
 
 ### Test 9
 **FAIL**
-
+**Descritption: Testing first text box empty value and second text box empty value at once.**
 ***
 
 > *Input: first text Box = "", second text box = ""*  
