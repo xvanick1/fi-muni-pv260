@@ -6,6 +6,8 @@ Specification is incomplete on formats of last name and first name we want to ac
 - *Do we want to accept numbers, signs, comas, whitespaces, etc. ? If yes, we would also need tests for these constraints.*  
 - *Should every last name and last name start with Uppercase? If yes we would also need tests for these contraints.*  
 
+Additional testing approaches to use: Whitebox testing, Graybox testing, Security testing, Usability testing, Experience-based testing.
+
 
 ### Test 1 
 
