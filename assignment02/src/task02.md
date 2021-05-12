@@ -46,10 +46,23 @@ When choosing the attributes of an imaginary eshop, we therefore proceeded from 
 1. Future stock availability
 1. Customer self-service and administration
 1. Invoice and credit reporting
-1. Products reviews
+1. Products revie ws
 
 ## Test cases
-- 
+
+### Shopping cart
+>  1. Add items to the cart and continue shopping.
+>  1. If the user adds the same item to the cart while continuing to shop, the item count in the shopping cart should get incremented.
+>  1. All items and their totals should be displayed in the cart.
+>  1. Taxes as per location should be applied.
+>  1. A user can add more items to the cart- total should reflect the same.
+>  1. Update the contents added to the cart- total should reflect that too.
+>  1. Remove items from the cart.
+>  1. Proceed to checkout.
+>  1. Calculate Shipping costs with different shipping options.
+>  1. Apply coupons.
+>  1. Don’t check out, close the site, and come back later. The site should retain the items in the cart.
+
 
 ## The most risky clusters of impact
 - 
