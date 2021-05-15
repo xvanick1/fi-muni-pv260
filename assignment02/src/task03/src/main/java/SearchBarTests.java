@@ -15,6 +15,10 @@ import static org.testng.Assert.assertNotEquals;
  **/
 
 public class SearchBarTests {
+
+    /**
+     * Test Search panel
+     */
     @Test
     public void PositiveSearch(){
         WebDriver driver = new ChromeDriver();
@@ -38,6 +42,9 @@ public class SearchBarTests {
         }
     }
 
+    /**
+     * Test switching languages in search panel
+     */
     @Test
     public void PositiveSearchInEnglishLanguage(){
 
@@ -66,6 +73,9 @@ public class SearchBarTests {
         }
     }
 
+    /**
+     * Test switching the language to deutch in SearchPanel
+     */
     @Test
     public void NegativeSearchInEnglishLanguage(){
         WebDriver driver = new ChromeDriver();
@@ -92,4 +102,5 @@ public class SearchBarTests {
             driver.close();
         }
     }
+
 }

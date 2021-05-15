@@ -15,7 +15,9 @@ import static org.testng.Assert.assertEquals;
 
 public class FootTests {
 
-
+    /**
+     * Test Privacy policy link in footer
+     */
     @Test
     public void privacyPolicyTest() {
         WebDriver driver = new ChromeDriver();
@@ -32,6 +34,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test About Wikipedia link in footer
+     */
     @Test
     public void aboutWikipediaTest() {
         WebDriver driver = new ChromeDriver();
@@ -49,6 +54,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Disclaimers link in footer
+     */
     @Test
     public void disclaimersTest() {
         WebDriver driver = new ChromeDriver();
@@ -66,6 +74,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Contact Wikipedia link in footer
+     */
     @Test
     public void contactLinkTest() {
         WebDriver driver = new ChromeDriver();
@@ -83,6 +94,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Mobile view link in footer
+     */
     @Test
     public void mobileViewTest() {
         WebDriver driver = new ChromeDriver();
@@ -100,6 +114,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Developers link in footer
+     */
     @Test
     public void developersTest() {
         WebDriver driver = new ChromeDriver();
@@ -117,6 +134,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Statistics link in footer
+     */
     @Test
     public void statisticsTest() {
         WebDriver driver = new ChromeDriver();
@@ -133,6 +153,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Cookie statement link in footer
+     */
     @Test
     public void cookieStatementTest() {
         WebDriver driver = new ChromeDriver();
@@ -149,6 +172,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Wikimedia Foundation link in footer
+     */
     @Test
     public void wikiMediaFoundationTest() {
         WebDriver driver = new ChromeDriver();
@@ -165,6 +191,9 @@ public class FootTests {
         }
     }
 
+    /**
+     * Test Powered by MediaWiki link in footer
+     */
     @Test
     public void poweredByMediaWikiFoundationTest() {
         WebDriver driver = new ChromeDriver();

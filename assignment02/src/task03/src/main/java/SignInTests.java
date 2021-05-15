@@ -13,6 +13,11 @@ import static org.testng.Assert.assertEquals;
  * @project pv260-assignment02-task03
  **/
 public class SignInTests {
+
+    /**
+     * Testing correct credentials
+     * @throws InterruptedException
+     */
     @Test
     public void PositiveLogin() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
@@ -34,6 +39,10 @@ public class SignInTests {
 
     }
 
+    /**
+     * Testing incorrect credentials
+     * @throws InterruptedException
+     */
     @Test
     public void IncorrectLogin() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
@@ -57,6 +66,9 @@ public class SignInTests {
         }
     }
 
+    /**
+     * Testing title at the login page
+     */
     @Test
     public void titleTest() {
         WebDriver driver = new ChromeDriver();
@@ -72,6 +84,9 @@ public class SignInTests {
         }
     }
 
+    /**
+     * Test forgot password link
+     */
     @Test
     public void forgotPasswordTest() {
         WebDriver driver = new ChromeDriver();
@@ -88,6 +103,9 @@ public class SignInTests {
         }
     }
 
+    /**
+     * Test \"Help with Logging\" in button
+     */
     @Test
     public void HelpLoginTest() {
         WebDriver driver = new ChromeDriver();
