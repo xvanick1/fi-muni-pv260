@@ -103,4 +103,23 @@ public class SearchBarTests {
         }
     }
 
+    /**
+     * Test Search redirection
+     */
+    @Test
+    public void cookieStatementTest() {
+        WebDriver driver = new ChromeDriver();
+        try {
+            String originaldUrl = "https://www.wikipedia.org/";
+            driver.manage().window().maximize();
+            driver.get(originaldUrl);
+
+           driver.findElement(By.className("pure-button-primary-progressive")).click();
+
+            assertNotEquals(driver.getCurrentUrl(), originaldUrl);
+        } finally {
+            driver.close();
+        }
+    }
+
 }
