@@ -34,6 +34,30 @@ public class Main {
         assertEquals(actualUrl, expectedUrl);
     }
 
+    @Test
+    public void PositiveSearchInEnglishLanguage(){
+        WebDriver driver = new SafariDriver();
+
+        driver.manage().window().maximize();
+        driver.get("https://www.wikipedia.org");
+
+        WebElement searchBar = driver.findElement(By.id("searchInput"));
+        WebElement searchButton = driver.findElement(By.className("pure-button-primary-progressive"));
+
+        Select languageSetting = new Select(driver.findElement(By.id("searchLanguage")));
+        languageSetting.selectByValue("de");
+
+        searchBar.sendKeys("Adolf Hitler");
+        searchButton.click();
+
+        String expectedUrl = "https://de.wikipedia.org/wiki/Adolf_Hitler";
+        String actualUrl = driver.getCurrentUrl();
+
+        assertEquals(actualUrl, expectedUrl);
+    }
+
+
+
 
 
 
