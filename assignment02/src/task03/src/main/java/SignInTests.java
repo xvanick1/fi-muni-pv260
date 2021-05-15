@@ -1,19 +1,11 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 
-import java.util.Set;
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.sleep;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotEquals;
 
 /**
  * @author Jozef Vanický, Michal Zelenák
