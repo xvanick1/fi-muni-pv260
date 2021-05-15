@@ -17,4 +17,10 @@ public class AtLeastNOfFilterTest {
         assertThrows(FilterNeverSucceeds.class, () -> new AtLeastNOfFilter<Integer>(2, filter));
     }
 
+    @Test
+    public void illegalArgumentExceptionConstructorTest() {
+        assertThrows(IllegalArgumentException.class, () -> new AtLeastNOfFilter<Integer>(0, filter));
+        assertThrows(IllegalArgumentException.class, () -> new AtLeastNOfFilter<Integer>(-1, filter));
+        assertThrows(IllegalArgumentException.class, () -> new AtLeastNOfFilter<Integer>(-10, filter));
+    }
 }
