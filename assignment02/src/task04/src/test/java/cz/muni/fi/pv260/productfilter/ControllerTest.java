@@ -1,6 +1,8 @@
 package cz.muni.fi.pv260.productfilter;
 
 import java.util.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.*;
 import org.junit.jupiter.api.Test;
 
@@ -14,35 +16,34 @@ import static org.mockito.Mockito.*;
 
 public class ControllerTest {
     @Mock
-    Output output = mock(Output.class);
+    Output output;
 
     @Mock
-    Input input = mock(Input.class);
+    Input input;
 
     @Mock
-    Filter filter = mock(Filter.class);
+    Filter<Product> filter;
 
     @Mock
-    Logger logger = mock(Logger.class);
+    Logger logger;
 
     @Mock
-    Product product1 = mock(Product.class),
-            product2 = mock(Product.class),
-            product3 = mock(Product.class),
-            product4 = mock(Product.class);
+    Product product1,
+            product2,
+            product3,
+            product4;
+
+    @BeforeEach
+    public void init() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     /**
      * Test that the controller sends exactly the products selected by the provided filter to Output.
-     * @throws ObtainFailedException
+     * @throws ObtainFailedException Exception from Input
      */
     @Test
     public void testSelectProductFilter() throws ObtainFailedException {
-        Collection<Product> collections = new HashSet<>();
-        collections.add(product1);
-        collections.add(product2);
-        collections.add(product3);
-        collections.add(product4);
-
         when(input.obtainProducts()).thenReturn(Arrays.asList(product1, product2, product3, product4));
         when(filter.passes(product1)).thenReturn(true);
         when(filter.passes(product2)).thenReturn(false);
@@ -57,13 +58,10 @@ public class ControllerTest {
 
     /**
      * Test that the controller logs the message in documented format on success.
-     * @throws ObtainFailedException
+     * @throws ObtainFailedException Exception from input
      */
     @Test
     public void testSuccessSelectProductFilterLogs() throws ObtainFailedException {
-        Collection<Product> collections = new HashSet<>();
-        collections.add(product1);
-
         when(input.obtainProducts()).thenReturn(Collections.singletonList(product1));
         when(filter.passes(product1)).thenReturn(true);
 
@@ -76,7 +74,7 @@ public class ControllerTest {
 
     /**
      * Test that if exception occurs when obtaining the Product data, Controller logs this exception.
-     * @throws ObtainFailedException
+     * @throws ObtainFailedException Exception from Input
      */
     @Test
     public void productExceptionControllerLogTest() throws ObtainFailedException {
@@ -91,7 +89,7 @@ public class ControllerTest {
 
     /**
      * Test that if exception occurs when obtaining the Product data, nothing is passed to the Output.
-     * @throws ObtainFailedException
+     * @throws ObtainFailedException Exception from Input
      */
     @Test
     public void productExceptionNothingIsPassedToOutputTest() throws ObtainFailedException {
