@@ -48,7 +48,7 @@ public class AtLeastNOfFilterTest {
         when(filter3.passes(Color.BLACK)).thenReturn(true);
         when(filter4.passes(Color.BLACK)).thenReturn(false);
 
-        AtLeastNOfFilter atLeastNOfFilter = new AtLeastNOfFilter(1, filter1,filter2,filter3,filter4);
+        AtLeastNOfFilter atLeastNOfFilter = new AtLeastNOfFilter(1, filter1, filter2, filter3, filter4);
         assertTrue(atLeastNOfFilter.passes(Color.BLACK));
     }
 
@@ -56,13 +56,13 @@ public class AtLeastNOfFilterTest {
      * Test that the filter fails if at most n-1 child filters pass.
      */
     @Test
-    public void FailsIfNminusOnePasses(){
+    public void FailsIfnMinusOnePasses(){
         when(filter1.passes(Color.BLACK)).thenReturn(true);
         when(filter2.passes(Color.BLACK)).thenReturn(true);
         when(filter3.passes(Color.BLACK)).thenReturn(true);
         when(filter4.passes(Color.BLACK)).thenReturn(false);
 
-        AtLeastNOfFilter atLeastNOfFilter = new AtLeastNOfFilter(4, filter1,filter2,filter3,filter4);
+        AtLeastNOfFilter atLeastNOfFilter = new AtLeastNOfFilter(4, filter1, filter2, filter3, filter4);
         assertFalse(atLeastNOfFilter.passes(Color.BLACK));
     }
 }
