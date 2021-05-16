@@ -1,11 +1,10 @@
 package cz.muni.fi.pv260.productfilter;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.mockito.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * @author Michal Zelenák, Jozef Vanický
@@ -16,10 +15,10 @@ import static org.mockito.Mockito.when;
 public class AtLeastNOfFilterTest {
 
     @Mock
-    Filter filter1 = mock(Filter.class)
-            ,filter2 = mock(Filter.class)
-            ,filter3 = mock(Filter.class)
-            ,filter4= mock(Filter.class);
+    Filter filter1 = mock(Filter.class),
+           filter2 = mock(Filter.class),
+           filter3 = mock(Filter.class),
+           filter4 = mock(Filter.class);
 
     @Test
     public void filterNeverSucceedsConstructorTest() {

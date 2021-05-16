@@ -1,10 +1,9 @@
 package cz.muni.fi.pv260.productfilter;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.*;
-
 import java.util.*;
+import org.mockito.*;
+import org.junit.jupiter.api.Test;
+
 import static org.mockito.Mockito.*;
 
 /**
