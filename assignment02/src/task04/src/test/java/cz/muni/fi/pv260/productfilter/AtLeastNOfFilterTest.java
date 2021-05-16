@@ -20,11 +20,17 @@ public class AtLeastNOfFilterTest {
            filter3 = mock(Filter.class),
            filter4 = mock(Filter.class);
 
+    /**
+     * Test that the constructor throws FilterNeverSucceeds exception as documented (if n is higher than number of child filters).
+     */
     @Test
     public void filterNeverSucceedsConstructorTest() {
         assertThrows(FilterNeverSucceeds.class, () -> new AtLeastNOfFilter<Integer>(2, filter1));
     }
 
+    /**
+     * Test that the constructor throws IllegalArgumentException exception as documented (if n is 0 or lower).
+     */
     @Test
     public void illegalArgumentExceptionConstructorTest() {
         assertThrows(IllegalArgumentException.class, () -> new AtLeastNOfFilter<Integer>(0, filter1));
@@ -32,6 +38,9 @@ public class AtLeastNOfFilterTest {
         assertThrows(IllegalArgumentException.class, () -> new AtLeastNOfFilter<Integer>(-10, filter1));
     }
 
+    /**
+     * Test that the filter passes if at least exactly n child filters pass.
+     */
     @Test
     public void passIfExactlyOnePasses(){
         when(filter1.passes(Color.BLACK)).thenReturn(false);
@@ -43,6 +52,9 @@ public class AtLeastNOfFilterTest {
         assertTrue(atLeastNOfFilter.passes(Color.BLACK));
     }
 
+    /**
+     * Test that the filter fails if at most n-1 child filters pass.
+     */
     @Test
     public void FailsIfNminusOnePasses(){
         when(filter1.passes(Color.BLACK)).thenReturn(true);
