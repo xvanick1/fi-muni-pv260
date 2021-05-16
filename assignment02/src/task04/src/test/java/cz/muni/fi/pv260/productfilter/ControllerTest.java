@@ -58,9 +58,6 @@ public class ControllerTest {
         controller.select(filter1);
 
         verify(output).postSelectedProducts(Arrays.asList(product1,product4));
-        verify(logger).setLevel("INFO");
-        verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 2 out of 4 available products.");
-
     }
 
 }
