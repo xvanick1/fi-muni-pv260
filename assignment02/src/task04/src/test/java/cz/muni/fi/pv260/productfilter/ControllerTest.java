@@ -36,26 +36,6 @@ public class ControllerTest {
      * @throws ObtainFailedException
      */
     @Test
-    public void testSuccessSelectProductFilter() throws ObtainFailedException {
-        Collection<Product> collections = new HashSet<>();
-        collections.add(product1);
-
-        when(input.obtainProducts()).thenReturn(Collections.singletonList(product1));
-        when(filter.passes(product1)).thenReturn(true);
-
-        Controller controller = new Controller(input,output,logger);
-        controller.select(filter);
-
-        verify(logger).setLevel("INFO");
-        verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 1 out of 1 available products.");
-
-    }
-
-    /**
-     * Test that the controller logs the message in documented format on success.
-     * @throws ObtainFailedException
-     */
-    @Test
     public void testSelectProductFilter() throws ObtainFailedException {
         Collection<Product> collections = new HashSet<>();
         collections.add(product1);
@@ -63,16 +43,35 @@ public class ControllerTest {
         collections.add(product3);
         collections.add(product4);
 
-        when(input.obtainProducts()).thenReturn(Arrays.asList(product1,product2,product3,product4));
+        when(input.obtainProducts()).thenReturn(Arrays.asList(product1, product2, product3, product4));
         when(filter.passes(product1)).thenReturn(true);
         when(filter.passes(product2)).thenReturn(false);
         when(filter.passes(product3)).thenReturn(false);
         when(filter.passes(product4)).thenReturn(true);
 
-        Controller controller = new Controller(input,output,logger);
+        Controller controller = new Controller(input, output, logger);
         controller.select(filter);
 
         verify(output).postSelectedProducts(Arrays.asList(product1,product4));
+    }
+
+    /**
+     * Test that the controller logs the message in documented format on success.
+     * @throws ObtainFailedException
+     */
+    @Test
+    public void testSuccessSelectProductFilterLogs() throws ObtainFailedException {
+        Collection<Product> collections = new HashSet<>();
+        collections.add(product1);
+
+        when(input.obtainProducts()).thenReturn(Collections.singletonList(product1));
+        when(filter.passes(product1)).thenReturn(true);
+
+        Controller controller = new Controller(input, output, logger);
+        controller.select(filter);
+
+        verify(logger).setLevel("INFO");
+        verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 1 out of 1 available products.");
     }
 
     /**
@@ -83,7 +82,7 @@ public class ControllerTest {
     public void productExceptionControllerLogTest() throws ObtainFailedException {
         when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
 
-        Controller controller = new Controller(input,output,logger);
+        Controller controller = new Controller(input, output, logger);
         controller.select(filter);
 
         verify(logger).setLevel("ERROR");
@@ -98,7 +97,7 @@ public class ControllerTest {
     public void productExceptionNothingIsPassedToOutputTest() throws ObtainFailedException {
         when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
 
-        Controller controller = new Controller(input,output,logger);
+        Controller controller = new Controller(input, output, logger);
         controller.select(filter);
 
         verify(output, never()).postSelectedProducts(Mockito.any());
