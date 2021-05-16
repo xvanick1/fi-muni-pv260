@@ -72,4 +72,14 @@ public class ControllerTest {
         verify(logger).setLevel("ERROR");
         verify(logger).log(Controller.TAG_CONTROLLER, "Filter procedure failed with exception: cz.muni.fi.pv260.productfilter.ObtainFailedException");
     }
+
+    @Test
+    public void productExceptionNothingIsPassedToOutputTest() throws ObtainFailedException {
+        when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
+
+        Controller controller = new Controller(input,output,logger);
+        controller.select(filter);
+
+        verify(output, never()).postSelectedProducts(Mockito.any());
+    }
 }
