@@ -7,6 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/**
+ * @author Michal Zelenák, Jozef Vanický
+ * @created 14.05.2021
+ * @project pv260-assignment02-task03
+ **/
+
 public class AtLeastNOfFilterTest {
 
     @Mock

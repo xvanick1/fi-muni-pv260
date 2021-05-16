@@ -2,10 +2,16 @@ package cz.muni.fi.pv260.productfilter;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.*;
 
 import java.util.*;
 import static org.mockito.Mockito.*;
+
+/**
+ * @author Michal Zelenák, Jozef Vanický
+ * @created 15.05.2021
+ * @project pv260-assignment02-task03
+ **/
 
 public class ControllerTest {
     @Mock
