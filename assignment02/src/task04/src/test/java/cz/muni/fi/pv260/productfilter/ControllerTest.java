@@ -2,6 +2,8 @@ package cz.muni.fi.pv260.productfilter;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+
 import java.util.*;
 import static org.mockito.Mockito.*;
 
@@ -19,14 +21,14 @@ public class ControllerTest {
     Logger logger = mock(Logger.class);
 
     @Mock
-    Product product1 = mock(Product.class), product2 = mock(Product.class), product3 = mock(Product.class), product4 = mock(Product.class);
-
-    @Mock
-    ObtainFailedException obtainFailedException = mock(ObtainFailedException.class);
+    Product product1 = mock(Product.class),
+            product2 = mock(Product.class),
+            product3 = mock(Product.class),
+            product4 = mock(Product.class);
 
     @Test
     public void testSuccessSelectProductFilter() throws ObtainFailedException {
-        Collection<Product> collections = new HashSet();
+        Collection<Product> collections = new HashSet<>();
         collections.add(product1);
 
         when(input.obtainProducts()).thenReturn(Arrays.asList(product1));
@@ -42,7 +44,7 @@ public class ControllerTest {
 
     @Test
     public void testSelectProductFilter() throws ObtainFailedException {
-        Collection<Product> collections = new HashSet();
+        Collection<Product> collections = new HashSet<>();
         collections.add(product1);
         collections.add(product2);
         collections.add(product3);
@@ -61,7 +63,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void productExceptionNothingIsPassedTest() throws ObtainFailedException {
+    public void productExceptionControllerLogTest() throws ObtainFailedException {
         when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
 
         Controller controller = new Controller(input,output,logger);
