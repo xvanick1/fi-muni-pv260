@@ -25,6 +25,25 @@ public class ControllerTest {
     public void testSuccessSelectProductFilter() throws ObtainFailedException {
         Collection<Product> collections = new HashSet();
         collections.add(product1);
+
+
+        when(input.obtainProducts()).thenReturn(Arrays.asList(product1));
+        when(filter1.passes(product1)).thenReturn(true);
+
+
+        Controller controller = new Controller(input,output,logger);
+        controller.select(filter1);
+
+        verify(logger).setLevel("INFO");
+        verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 1 out of 1 available products.");
+
+    }
+
+
+    @Test
+    public void testSelectProductFilter() throws ObtainFailedException {
+        Collection<Product> collections = new HashSet();
+        collections.add(product1);
         collections.add(product2);
         collections.add(product3);
         collections.add(product4);
@@ -38,6 +57,7 @@ public class ControllerTest {
         Controller controller = new Controller(input,output,logger);
         controller.select(filter1);
 
+        verify(output).postSelectedProducts(Arrays.asList(product1,product4));
         verify(logger).setLevel("INFO");
         verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 2 out of 4 available products.");
 
