@@ -13,7 +13,7 @@ public class ControllerTest {
     Input input = mock(Input.class);
 
     @Mock
-    Filter filter1 = mock(Filter.class);
+    Filter filter = mock(Filter.class);
 
     @Mock
     Logger logger = mock(Logger.class);
@@ -30,10 +30,10 @@ public class ControllerTest {
         collections.add(product1);
 
         when(input.obtainProducts()).thenReturn(Arrays.asList(product1));
-        when(filter1.passes(product1)).thenReturn(true);
+        when(filter.passes(product1)).thenReturn(true);
 
         Controller controller = new Controller(input,output,logger);
-        controller.select(filter1);
+        controller.select(filter);
 
         verify(logger).setLevel("INFO");
         verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 1 out of 1 available products.");
@@ -49,13 +49,13 @@ public class ControllerTest {
         collections.add(product4);
 
         when(input.obtainProducts()).thenReturn(Arrays.asList(product1,product2,product3,product4));
-        when(filter1.passes(product1)).thenReturn(true);
-        when(filter1.passes(product2)).thenReturn(false);
-        when(filter1.passes(product3)).thenReturn(false);
-        when(filter1.passes(product4)).thenReturn(true);
+        when(filter.passes(product1)).thenReturn(true);
+        when(filter.passes(product2)).thenReturn(false);
+        when(filter.passes(product3)).thenReturn(false);
+        when(filter.passes(product4)).thenReturn(true);
 
         Controller controller = new Controller(input,output,logger);
-        controller.select(filter1);
+        controller.select(filter);
 
         verify(output).postSelectedProducts(Arrays.asList(product1,product4));
     }
@@ -65,7 +65,7 @@ public class ControllerTest {
         when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
 
         Controller controller = new Controller(input,output,logger);
-        controller.select(filter1);
+        controller.select(filter);
 
         verify(logger).setLevel("ERROR");
         verify(logger).log(Controller.TAG_CONTROLLER, "Filter procedure failed with exception: cz.muni.fi.pv260.productfilter.ObtainFailedException");
