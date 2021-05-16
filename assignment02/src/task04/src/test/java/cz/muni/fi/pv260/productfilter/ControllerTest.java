@@ -31,6 +31,10 @@ public class ControllerTest {
             product3 = mock(Product.class),
             product4 = mock(Product.class);
 
+    /**
+     * Test that the controller sends exactly the products selected by the provided filter to Output.
+     * @throws ObtainFailedException
+     */
     @Test
     public void testSuccessSelectProductFilter() throws ObtainFailedException {
         Collection<Product> collections = new HashSet<>();
@@ -47,6 +51,10 @@ public class ControllerTest {
 
     }
 
+    /**
+     * Test that the controller logs the message in documented format on success.
+     * @throws ObtainFailedException
+     */
     @Test
     public void testSelectProductFilter() throws ObtainFailedException {
         Collection<Product> collections = new HashSet<>();
@@ -67,6 +75,10 @@ public class ControllerTest {
         verify(output).postSelectedProducts(Arrays.asList(product1,product4));
     }
 
+    /**
+     * Test that if exception occurs when obtaining the Product data, Controller logs this exception.
+     * @throws ObtainFailedException
+     */
     @Test
     public void productExceptionControllerLogTest() throws ObtainFailedException {
         when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
@@ -78,6 +90,10 @@ public class ControllerTest {
         verify(logger).log(Controller.TAG_CONTROLLER, "Filter procedure failed with exception: cz.muni.fi.pv260.productfilter.ObtainFailedException");
     }
 
+    /**
+     * Test that if exception occurs when obtaining the Product data, nothing is passed to the Output.
+     * @throws ObtainFailedException
+     */
     @Test
     public void productExceptionNothingIsPassedToOutputTest() throws ObtainFailedException {
         when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
