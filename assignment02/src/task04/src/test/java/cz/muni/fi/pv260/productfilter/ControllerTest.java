@@ -36,7 +36,7 @@ public class ControllerTest {
         Collection<Product> collections = new HashSet<>();
         collections.add(product1);
 
-        when(input.obtainProducts()).thenReturn(Arrays.asList(product1));
+        when(input.obtainProducts()).thenReturn(Collections.singletonList(product1));
         when(filter.passes(product1)).thenReturn(true);
 
         Controller controller = new Controller(input,output,logger);
