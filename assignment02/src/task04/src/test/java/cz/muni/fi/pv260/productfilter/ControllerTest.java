@@ -19,7 +19,10 @@ public class ControllerTest {
     Logger logger = mock(Logger.class);
 
     @Mock
-    Product product1 = mock(Product.class),product2 = mock(Product.class),product3 = mock(Product.class),product4 = mock(Product.class);
+    Product product1 = mock(Product.class), product2 = mock(Product.class), product3 = mock(Product.class), product4 = mock(Product.class);
+
+    @Mock
+    ObtainFailedException obtainFailedException = mock(ObtainFailedException.class);
 
     @Test
     public void testSuccessSelectProductFilter() throws ObtainFailedException {
@@ -36,7 +39,6 @@ public class ControllerTest {
         verify(logger).log(Controller.TAG_CONTROLLER, "Successfully selected 1 out of 1 available products.");
 
     }
-
 
     @Test
     public void testSelectProductFilter() throws ObtainFailedException {
@@ -58,4 +60,14 @@ public class ControllerTest {
         verify(output).postSelectedProducts(Arrays.asList(product1,product4));
     }
 
+    @Test
+    public void productExceptionNothingIsPassedTest() throws ObtainFailedException {
+        when(input.obtainProducts()).thenThrow(ObtainFailedException.class);
+
+        Controller controller = new Controller(input,output,logger);
+        controller.select(filter1);
+
+        verify(logger).setLevel("ERROR");
+        verify(logger).log(Controller.TAG_CONTROLLER, "Filter procedure failed with exception: cz.muni.fi.pv260.productfilter.ObtainFailedException");
+    }
 }
