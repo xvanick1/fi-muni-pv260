@@ -4,7 +4,7 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
-public class NegativeForIterator extends AbstractCheck {
+public class NegativeIncrementCheck extends AbstractCheck {
 
     private boolean forIteratorActive;
     private boolean plusIterator;
@@ -12,12 +12,13 @@ public class NegativeForIterator extends AbstractCheck {
 
     @Override
     public int[] getDefaultTokens(){
-        return new int[] {FOR_ITERATOR, MINUS_ASSIGN};
+
+        return new int[] {FOR_ITERATOR, MINUS_ASSIGN, DEC,POST_DEC,IDENT, PLUS_ASSIGN,ASSIGN,UNARY_MINUS,MINUS};
     }
 
     @Override
     public int[] getAcceptableTokens() {
-        return new int[] {FOR_ITERATOR, MINUS_ASSIGN};
+        return new int[] {FOR_ITERATOR, MINUS_ASSIGN, DEC,POST_DEC,IDENT, PLUS_ASSIGN,ASSIGN,UNARY_MINUS,MINUS};
     }
 
     @Override
@@ -30,7 +31,7 @@ public class NegativeForIterator extends AbstractCheck {
         if(ast.getType() == FOR_ITERATOR){
             enterForIterator();
         }
-        else if(forIteratorActive){
+        else if(forIteratorActive && plusIterator==false && assignExpresion==false){
             switch(ast.getType()){
                 case MINUS_ASSIGN:
                 case POST_DEC:
@@ -42,23 +43,23 @@ public class NegativeForIterator extends AbstractCheck {
                     break;
                 case ASSIGN:
                     enterAssignExpresion();
+                    break;
             }
         }
-        else if(plusIterator){
+        else if(plusIterator && forIteratorActive){
             if(ast.getType()!=IDENT && ast.getType()!=UNARY_MINUS)
                 leavePlusIterator();
             else if(ast.getType()==UNARY_MINUS) {
                 logDetection(ast);
             }
         }
-        else if(assignExpresion){
+        else if(assignExpresion && forIteratorActive){
             if(ast.getType()!=IDENT && ast.getType()!=MINUS)
                 leaveAssignExpresion();
             else if(ast.getType()==MINUS) {
                 logDetection(ast);
             }
         }
-
     }
 
     private void enterAssignExpresion() {
@@ -80,8 +81,11 @@ public class NegativeForIterator extends AbstractCheck {
 
     @Override
     public void leaveToken(DetailAST ast){
-        if(ast.getType() == FOR_ITERATOR)
+        if(ast.getType() == FOR_ITERATOR){
             leaveForIterator();
+            leaveAssignExpresion();
+            leavePlusIterator();
+        }
     }
 
     public void enterForIterator(){
