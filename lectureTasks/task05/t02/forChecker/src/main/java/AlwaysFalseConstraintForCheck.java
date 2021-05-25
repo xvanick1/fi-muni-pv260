@@ -2,6 +2,8 @@
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 
+import java.util.Objects;
+
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
 public class AlwaysFalseConstraintForCheck extends AbstractCheck {
@@ -9,9 +11,6 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
     private boolean forStatement;
     private boolean forInit;
     private boolean forCondition;
-    private boolean forIterator;
-
-    private boolean incrementGoesUp;
 
     private DetailAST forLiteral;
     private String condition;
@@ -19,12 +18,12 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
     @Override
     public int[] getDefaultTokens(){
 
-        return new int[] {FOR_INIT,FOR_CONDITION,EXPR,ASSIGN,LITERAL_FOR,FOR_ITERATOR};
+        return new int[] {FOR_INIT,FOR_CONDITION,EXPR,ASSIGN,LITERAL_FOR};
     }
 
     @Override
     public int[] getAcceptableTokens() {
-        return new int[] {FOR_INIT,FOR_CONDITION,EXPR,ASSIGN,LITERAL_FOR,FOR_ITERATOR};
+        return new int[] {FOR_INIT,FOR_CONDITION,EXPR,ASSIGN,LITERAL_FOR};
     }
 
     @Override
@@ -47,10 +46,6 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
             enterForCondition();
         }
 
-        else if( ast.getType() == FOR_ITERATOR){
-            enterForIterator();
-        }
-
         else if(forInit && forStatement){
             if(ast.getType()==EXPR){
                 if(ast.getChildCount()==1){
@@ -64,24 +59,12 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
                 condition+=ast.getFirstChild().getText();
                 if(ast.getFirstChild().getChildCount()==2){
                     condition+=ast.getFirstChild().getLastChild().getText();
+                    if(Objects.equals(ExpresionEvaluator.eval(condition),false)){
+                        logDetection();
+                    }
                 }
                 leaveForCondition();
             }
-        }
-        else if(forIterator && forStatement){
-            boolean conditionAndInitConflict= (boolean) ExpresionEvaluator.eval(condition);
-            if(ast.branchContains(MINUS) || ast.branchContains(MINUS_ASSIGN) || ast.branchContains(DEC) || ast.branchContains(POST_DEC) || ast.branchContains(UNARY_MINUS)){
-                incrementGoesUp=false;
-                if(conditionAndInitConflict==true){
-                    logDetection();
-                }
-            }
-            else{
-                if(conditionAndInitConflict==false){
-                    logDetection();
-                }
-            }
-
         }
     }
 
@@ -101,13 +84,6 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
         forInit =false;
     }
 
-    private void enterForIterator() {
-        forIterator =true;
-    }
-
-    private void leaveForIterator() {
-        forIterator =false;
-    }
 
     private void enterFor() {
         forStatement =true;
@@ -127,7 +103,6 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
             leaveFor();
             leaveForInit();
             leaveForCondition();
-            leaveForIterator();
         }
         if(ast.getType()==FOR_INIT){
             leaveForInit();
@@ -135,9 +110,7 @@ public class AlwaysFalseConstraintForCheck extends AbstractCheck {
         if(ast.getType()==FOR_CONDITION){
             leaveForCondition();
         }
-        if(ast.getType()==FOR_ITERATOR){
-            leaveForIterator();
-        }
+
     }
 
     private void logDetection(){
