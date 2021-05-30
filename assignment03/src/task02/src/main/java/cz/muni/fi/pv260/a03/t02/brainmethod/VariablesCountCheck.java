@@ -1,4 +1,3 @@
-
 package cz.muni.fi.pv260.a03.t02.brainmethod;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
@@ -10,11 +9,11 @@ import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
 public class VariablesCountCheck extends AbstractCheck {
 
-    private int max;
-    private boolean methodActive;
     DetailAST method;
     HashSet<String> variablesInMethod = new HashSet<>();
-   // ActionListener actionListener = ActionListener.getActionListener();
+    private int max;
+    private boolean methodActive;
+    // ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax) {
         this.max = aMax;
@@ -23,12 +22,12 @@ public class VariablesCountCheck extends AbstractCheck {
     @Override
     public int[] getDefaultTokens() {
 
-        return new int[]{CTOR_DEF,IDENT,METHOD_DEF};
+        return new int[]{CTOR_DEF, IDENT, METHOD_DEF};
     }
 
     @Override
     public int[] getAcceptableTokens() {
-        return new int[]{CTOR_DEF,IDENT,METHOD_DEF};
+        return new int[]{CTOR_DEF, IDENT, METHOD_DEF};
     }
 
     @Override
@@ -45,8 +44,7 @@ public class VariablesCountCheck extends AbstractCheck {
         }
         if (methodActive) {
             if (ast.getType() == IDENT) {
-                if (!(variablesInMethod.contains(ast.getText())))
-                    variablesInMethod.add(ast.getText());
+                variablesInMethod.add(ast.getText());
             }
             if (variablesInMethod.size() > max) {
                 logDetection(method);

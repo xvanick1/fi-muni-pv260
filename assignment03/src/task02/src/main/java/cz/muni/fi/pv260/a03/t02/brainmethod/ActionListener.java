@@ -1,8 +1,6 @@
 package cz.muni.fi.pv260.a03.t02.brainmethod;
 
-import java.awt.event.ActionEvent;
-
-public class ActionListener  {
+public class ActionListener {
 
     private static boolean cycloComplexCheck;
     private static boolean lengthCheck;
@@ -12,21 +10,21 @@ public class ActionListener  {
 
     public static void actionPerformed(String message) {
 
-        switch(message){
+        switch (message) {
             case "cycloComplexCheck":
-                cycloComplexCheck=true;
+                cycloComplexCheck = true;
                 break;
             case "lengthCheck":
-                lengthCheck=true;
+                lengthCheck = true;
                 break;
             case "depthNestCheck":
-                depthNestCheck=true;
+                depthNestCheck = true;
                 break;
             case "variablesCountCheck":
-                variablesCountCheck=true;
+                variablesCountCheck = true;
                 break;
         }
-        if(cycloComplexCheck && lengthCheck && depthNestCheck && variablesCountCheck)
+        if (cycloComplexCheck && lengthCheck && depthNestCheck && variablesCountCheck)
             System.out.println("Brain Method detected");
     }
 }
