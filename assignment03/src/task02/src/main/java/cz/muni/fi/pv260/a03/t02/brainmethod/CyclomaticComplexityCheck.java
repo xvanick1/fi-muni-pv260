@@ -1,10 +1,9 @@
-package cz.muni.fi.pv260.a03.t02.brainmethod.checks;
+package cz.muni.fi.pv260.a03.t02.brainmethod;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
-import javax.lang.model.type.DeclaredType;
 
 import java.util.List;
 
@@ -72,6 +71,7 @@ public class CyclomaticComplexityCheck extends AbstractCheck {
     }
 
     private void logDetection(DetailAST ast){
-        log(ast, "Method complexity is higher than max allowed value (" + max + "), current("+complexity+"):"+ ast);
+        log(ast,"cycloComplexCheck");
+        //log(ast, "Method complexity is higher than max allowed value (" + max + "), current("+complexity+"):"+ ast);
     }
 }

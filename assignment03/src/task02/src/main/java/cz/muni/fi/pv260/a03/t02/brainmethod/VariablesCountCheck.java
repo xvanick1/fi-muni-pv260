@@ -1,5 +1,5 @@
 
-package cz.muni.fi.pv260.a03.t02.brainmethod.checks;
+package cz.muni.fi.pv260.a03.t02.brainmethod;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
@@ -67,6 +67,7 @@ public class VariablesCountCheck extends AbstractCheck {
     }
 
     private void logDetection(DetailAST ast) {
-        log(ast, "Number of variables used in method is higher than max allowed value (" + max + "), current(" + variablesInMethod.size() + "):" + ast);
+        log(ast,"variablesCountCheck");
+        //log(ast, "Number of variables used in method is higher than max allowed value (" + max + "), current(" + variablesInMethod.size() + "):" + ast);
     }
 }

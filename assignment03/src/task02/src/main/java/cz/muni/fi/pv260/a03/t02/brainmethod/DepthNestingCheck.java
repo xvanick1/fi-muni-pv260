@@ -1,16 +1,20 @@
-package cz.muni.fi.pv260.a03.t02.brainmethod.checks;
+
+package cz.muni.fi.pv260.a03.t02.brainmethod;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 
+import java.util.List;
+
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
-public class MethodLengthCheck extends AbstractCheck {
+public class DepthNestingCheck extends AbstractCheck {
 
     private int max;
     private boolean methodActive;
     DetailAST method;
-    private int lineOfCode;
+    private int nestingLevel;
+    List<Integer> listOfNestingTokens = List.of(LITERAL_FOR,LITERAL_WHILE,LITERAL_TRY,LITERAL_IF);
 
     public void setMax(int aMax)
     {
@@ -20,12 +24,12 @@ public class MethodLengthCheck extends AbstractCheck {
     @Override
     public int[] getDefaultTokens(){
 
-        return new int[] {CTOR_DEF,SLIST,METHOD_DEF};
+        return new int[] {CTOR_DEF,METHOD_DEF,LITERAL_FOR,LITERAL_WHILE,LITERAL_TRY,LITERAL_IF};
     }
 
     @Override
     public int[] getAcceptableTokens() {
-        return new int[] {CTOR_DEF,SLIST,METHOD_DEF};
+        return new int[] {CTOR_DEF,METHOD_DEF,LITERAL_FOR,LITERAL_WHILE,LITERAL_TRY,LITERAL_IF};
     }
 
     @Override
@@ -38,14 +42,14 @@ public class MethodLengthCheck extends AbstractCheck {
         if(ast.getType() == CTOR_DEF || ast.getType() == METHOD_DEF){
             this.method = ast;
             enterMethod();
-            this.lineOfCode = ast.getLineNo();
+            nestingLevel=0;
         }
         if(methodActive){
-            if(ast.getType()==SLIST){
-                 if(ast.getLastChild().getLineNo()-this.lineOfCode - 2 > max){
-                    logDetection(method,ast.getLastChild().getLineNo()-this.lineOfCode - 1);
+            if(listOfNestingTokens.contains(ast.getType())){
+                nestingLevel +=1;
+                if(nestingLevel > max){
+                    logDetection(method);
                 }
-                leaveMethod();
             }
 
         }
@@ -53,18 +57,17 @@ public class MethodLengthCheck extends AbstractCheck {
 
     @Override
     public void leaveToken(DetailAST ast){
-
+        if(listOfNestingTokens.contains(ast.getType()))
+            nestingLevel-=1;
     }
 
     public void enterMethod(){
         methodActive =true;
     }
 
-    public void leaveMethod(){
-        methodActive =false;
-    }
 
-    private void logDetection(DetailAST ast,int loc){
-        log(ast, "Method exceeds allowed number of lines (" + max + "), current("+loc+"):"+ ast);
+    private void logDetection(DetailAST ast){
+        log(ast,"depthNestCheck");
+        //log(ast, "Method exceeds allowed number of nesting (" + max + "), current("+nestingLevel+"):"+ ast);
     }
 }
