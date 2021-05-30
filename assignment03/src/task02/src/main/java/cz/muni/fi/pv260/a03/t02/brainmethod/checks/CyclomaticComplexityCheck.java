@@ -8,6 +8,9 @@ import java.util.List;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
+/**
+ * Module which checks if cyclomatic complexity threshold of methods in file is not crossed over
+ */
 public class CyclomaticComplexityCheck extends AbstractCheck {
 
     DetailAST method;

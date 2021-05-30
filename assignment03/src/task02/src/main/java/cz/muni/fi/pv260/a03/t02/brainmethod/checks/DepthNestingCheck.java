@@ -8,6 +8,9 @@ import java.util.List;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
+/**
+ * Module which checks if code in methods in checked file is not nested more times than threshold
+ */
 public class DepthNestingCheck extends AbstractCheck {
 
     DetailAST method;

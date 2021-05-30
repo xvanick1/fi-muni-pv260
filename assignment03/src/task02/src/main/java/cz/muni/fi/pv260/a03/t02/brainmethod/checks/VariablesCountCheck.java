@@ -8,6 +8,10 @@ import java.util.HashSet;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
+
+/**
+ * Module which checks if number of different variables used in method does not cross threshold
+ */
 public class VariablesCountCheck extends AbstractCheck {
 
     DetailAST method;

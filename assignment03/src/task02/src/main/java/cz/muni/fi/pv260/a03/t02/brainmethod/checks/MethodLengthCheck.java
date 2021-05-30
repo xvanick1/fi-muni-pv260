@@ -6,6 +6,9 @@ import cz.muni.fi.pv260.a03.t02.brainmethod.ActionListener;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
+/**
+ * Module which checks if number of lines does not exceeds threshold
+ */
 public class MethodLengthCheck extends AbstractCheck {
 
     DetailAST method;
