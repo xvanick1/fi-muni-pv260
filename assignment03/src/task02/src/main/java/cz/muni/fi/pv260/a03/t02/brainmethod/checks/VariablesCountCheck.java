@@ -18,7 +18,6 @@ public class VariablesCountCheck extends AbstractCheck {
     HashSet<String> variablesInMethod = new HashSet<>();
     private int max;
     private boolean methodActive;
-    // ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax) {
         this.max = aMax;

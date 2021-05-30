@@ -18,7 +18,6 @@ public class DepthNestingCheck extends AbstractCheck {
     private int max;
     private boolean methodActive;
     private int nestingLevel;
-    //ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax) {
         this.max = aMax;

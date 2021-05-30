@@ -18,7 +18,6 @@ public class CyclomaticComplexityCheck extends AbstractCheck {
     private int max;
     private boolean methodActive;
     private int complexity = 1;
-    //ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax) {
         this.max = aMax;

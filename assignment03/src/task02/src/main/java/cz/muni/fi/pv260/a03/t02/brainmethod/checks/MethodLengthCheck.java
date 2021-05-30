@@ -15,7 +15,6 @@ public class MethodLengthCheck extends AbstractCheck {
     private int max;
     private boolean methodActive;
     private int lineOfCode;
-    //  ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax) {
         this.max = aMax;
