@@ -1,33 +1,31 @@
-package cz.muni.fi.pv260.a03.t02.brainmethod;
+package cz.muni.fi.pv260.a03.t02.brainmethod.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
-
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
 public class MethodLengthCheck extends AbstractCheck {
 
-    private final int maxLOC;
+    private int max;
     private boolean methodActive;
     DetailAST method;
     private int lineOfCode;
 
-    public MethodLengthCheck(){
-        System.out.println("SMTH1");
-        //this.maxLOC = maxLoc;
-        this.maxLOC = 5;
+    public void setMax(int aMax)
+    {
+        this.max = aMax;
     }
 
     @Override
     public int[] getDefaultTokens(){
-        System.out.println("SMTH1");
-        return new int[] {CTOR_DEF,SLIST};
+
+        return new int[] {CTOR_DEF,SLIST,METHOD_DEF};
     }
 
     @Override
     public int[] getAcceptableTokens() {
-        return new int[] {CTOR_DEF,SLIST};
+        return new int[] {CTOR_DEF,SLIST,METHOD_DEF};
     }
 
     @Override
@@ -37,21 +35,19 @@ public class MethodLengthCheck extends AbstractCheck {
 
     @Override
     public void visitToken(DetailAST ast) {
-        System.out.println("SMTH");
-        if(ast.getType() == CTOR_DEF){
+        if(ast.getType() == CTOR_DEF || ast.getType() == METHOD_DEF){
             this.method = ast;
             enterMethod();
             this.lineOfCode = ast.getLineNo();
-            System.out.println(lineOfCode);
         }
         if(methodActive){
-            System.out.println("Active");
             if(ast.getType()==SLIST){
-                if(ast.getLineNo()-this.lineOfCode > maxLOC){
-                    logDetection(method);
+                 if(ast.getLastChild().getLineNo()-this.lineOfCode - 2 > max){
+                    logDetection(method,ast.getLastChild().getLineNo()-this.lineOfCode - 1);
                 }
+                leaveMethod();
             }
-            leaveMethod();
+
         }
     }
 
@@ -68,7 +64,7 @@ public class MethodLengthCheck extends AbstractCheck {
         methodActive =false;
     }
 
-    private void logDetection(DetailAST ast){
-        log(ast, "Method exceeds allowed number of lines" + ast);
+    private void logDetection(DetailAST ast,int loc){
+        log(ast, "Method exceeds allowed number of lines (" + max + "), current("+loc+"):"+ ast);
     }
 }
