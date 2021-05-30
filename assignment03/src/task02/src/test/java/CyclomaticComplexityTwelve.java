@@ -1,17 +1,15 @@
 import java.util.Random;
 
 /**
- * Cyclomatic complexity is 12 here
+ * Cyclomatic complexity is 11 here
  */
 public class CyclomaticComplexityTwelve {
 
     public CyclomaticComplexityTwelve(){
         Random rand = new Random();
         int a = rand.nextInt(200)-10;
-
         int b = rand.nextInt(250)-10;
-
-        if(a<0){
+        if(a<0 && b <0 || b<10){
             System.out.println("Less than zero");
         }
         else if(a<=5){
@@ -20,7 +18,6 @@ public class CyclomaticComplexityTwelve {
         else {
             System.out.println("Bigger than 5");
         }
-
         if(b<0){
             System.out.println("Less than zero");
         }
@@ -33,8 +30,7 @@ public class CyclomaticComplexityTwelve {
         if(b>10){
             System.out.println("Bigger than 10");
         }
-
+        String smth = "";
+        String name = smth.equals("uppercase") ? "JOHN" : "john";
     }
-
-
 }
