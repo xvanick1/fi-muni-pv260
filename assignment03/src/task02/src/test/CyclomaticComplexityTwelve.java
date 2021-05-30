@@ -1,23 +1,25 @@
 package cz.muni.fi.pv260.a03.t02.brainmethod;
 
+import java.util.Random;
+
 /**
  * Cyclomatic complexity is 12 here
  */
 public class CyclomaticComplexityTwelve {
 
     public CyclomaticComplexityTwelve(){
-        int a = 2;
-        int b = 3;
-        int c = 4;
-        int d = 5;
+        Random rand = new Random();
+        int a = rand.nextInt(200)-10;
+
+        int b = rand.nextInt(250)-10;
 
         if(a<0){
             System.out.println("Less than zero");
         }
-        else if(a<=5 && a>=0){
+        else if(a<=5){
             System.out.println("Between 0 a 5");
         }
-        else if (a>5){
+        else {
             System.out.println("Bigger than 5");
         }
 
@@ -28,12 +30,11 @@ public class CyclomaticComplexityTwelve {
             System.out.println("Between 0 and 5");
         }
         if(b>5 && b <= 10){
-            System.out.println("Between 5 and 10");
+            System.out.println("Bigger than 5 and equal or lower than 10");
         }
         if(b>10){
             System.out.println("Bigger than 10");
         }
-
 
     }
 
