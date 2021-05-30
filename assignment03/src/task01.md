@@ -1,0 +1,34 @@
+# Task01
+
+## 1. Problem
+Your acceptance tests run 20 hours in CI. You cannot use CI for verification of emergency fixes as it takes too long to get relevant results from it. That means sometimes emergency fixes are released uncomfortably late (waiting for tests to be executed), sometimes not prop- erly tested.
+
+### 1. possible root cause
+
+Inappropriately selected batch of tests. Don't need to test parts of the system which do not relate to the fix.
+- possible bug won't appear in the tests, batch of tests does not cover all the parts of the system which emergency fix applies to.
+- some tests may be dependend on/connected to more parts of the system (ex. setup method) so we have to rewrite/refactor them as we don't want them to be depended on the other parts of the system but want to use them in the batch of tests. This may lead to a new bug. This is a bad approach to the problem. We should not tailor/adapt tests to the code, but vice-versa.
+
+### 2. possible root cause
+Bad architecture of the whole project and/or tests. Inefficient code - improper use of memory, break of SOLID, etc.
+
+### 3. possible root cause
+Bottleneck in the CI. The tests and the system run fine, except of one place where a problem slows down whole system.
+
+### 1. reasonable solution
+We could test only the system module which the fix relates to. Refactor batch of tests/better selection of the tests to the batch.
+
+### 2. reasonable solution
+Refactor of the whole project architecture.
+
+### 3. reasonable solution
+Block the part of the system (which emergency fix applies to) until the tests are completed.
+
+### 4. reasonable solution
+Use of multiple CIs (backup server where the system will run until the emergency fix is tested and applied)
+
+### 5. reasonable solution
+Make the tests run faster (better SW/HW or cloud - parallel processing)
+
+
+
