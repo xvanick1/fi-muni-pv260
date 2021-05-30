@@ -53,3 +53,29 @@ Redesign of the interface between project modules.
 - chance of creating new bugs in the implementation
 - need of big and complicated modification (not just in the interface). This is costly, more work has to be done and also, there's a need for more testers.
 
+## 3. Problem
+Customers often find out really serious security bugs affecting them, representing a threat to them. Some of the customers share that bug with public / actively write about it to other of your customers.
+
+### 1. possible root cause
+Contract does not contain a non-disclosure agreement that prevents the customer from spreading information about security risks and at the same time forces him to report it to us.
+
+### 2. possible root cause
+Poorly testing and analysis of product security which leads to the detection of these errors by customers and not our testers.
+
+### 3. possible root cause
+Code exposure/leaks, which leads to simpler finding of bugs in code. 
+
+### 4. possible root cause
+Insufficient motivation of customers to report errors to the supplier.
+
+### 1. reasonable solution  
+Modification of the contract, anchoring of the confidentiality agreement about the security risks into the contract.
+- Overpriced product - a necessary proposal and legal analysis of the part of the contract, a more complicated relationship with the customer.
+- Inappropriate / strictly designed confidentiality agreement, which will discourage customers from using our product / hole in the confidentiality agreement, which will still allow some leak of information.
+
+### 2. reasonable solution
+Rewarding our customers for finding security risks in the form of discounts on the products.
+
+### 3. reasonable solution
+Improving our process of finding security bugs and risks.
+
