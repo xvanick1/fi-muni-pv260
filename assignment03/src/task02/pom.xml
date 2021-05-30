@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cz.muni.fi.pv260.a03.t02</groupId>
+    <artifactId>brainmethod</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>brainMethod</name>
+    <url>https://github.com/xvanick1/pv260/tree/master/assignment03</url>
+
+    <contributors>
+        <contributor>
+            <name>Michal Zelenák</name>
+            <email>506455@mail.muni.cz</email>
+            <url>https://is.muni.cz/auth/osoba/506455</url>
+            <organization>Masaryk University - Faculty of Informatics</organization>
+            <organizationUrl>https://www.fi.muni.cz</organizationUrl>
+        </contributor>
+        <contributor>
+            <name>Jozef Vanický</name>
+            <email>506486@mail.muni.cz</email>
+            <url>https://is.muni.cz/auth/osoba/506486</url>
+            <organization>Masaryk University - Faculty of Informatics</organization>
+            <organizationUrl>https://www.fi.muni.cz</organizationUrl>
+        </contributor>
+    </contributors>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+
+    </dependencies>
+</project>
