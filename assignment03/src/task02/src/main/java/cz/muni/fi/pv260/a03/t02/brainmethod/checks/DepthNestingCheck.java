@@ -1,7 +1,8 @@
-package cz.muni.fi.pv260.a03.t02.brainmethod;
+package cz.muni.fi.pv260.a03.t02.brainmethod.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import cz.muni.fi.pv260.a03.t02.brainmethod.ActionListener;
 
 import java.util.List;
 
