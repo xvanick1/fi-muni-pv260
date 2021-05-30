@@ -11,6 +11,7 @@ public class MethodLengthCheck extends AbstractCheck {
     private boolean methodActive;
     DetailAST method;
     private int lineOfCode;
+  //  ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax)
     {
@@ -63,7 +64,7 @@ public class MethodLengthCheck extends AbstractCheck {
     }
 
     private void logDetection(DetailAST ast,int loc){
-        log(ast,"lengthCheck");
+        ActionListener.actionPerformed("lengthCheck");
         //log(ast, "Method exceeds allowed number of lines (" + max + "), current("+loc+"):"+ ast);
     }
 }

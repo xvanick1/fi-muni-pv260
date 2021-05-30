@@ -15,6 +15,7 @@ public class DepthNestingCheck extends AbstractCheck {
     DetailAST method;
     private int nestingLevel;
     List<Integer> listOfNestingTokens = List.of(LITERAL_FOR,LITERAL_WHILE,LITERAL_TRY,LITERAL_IF);
+    //ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax)
     {
@@ -67,7 +68,7 @@ public class DepthNestingCheck extends AbstractCheck {
 
 
     private void logDetection(DetailAST ast){
-        log(ast,"depthNestCheck");
+        ActionListener.actionPerformed("depthNestCheck");
         //log(ast, "Method exceeds allowed number of nesting (" + max + "), current("+nestingLevel+"):"+ ast);
     }
 }

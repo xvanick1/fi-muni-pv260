@@ -5,6 +5,7 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 
+import javax.swing.*;
 import java.util.List;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
@@ -16,6 +17,7 @@ public class CyclomaticComplexityCheck extends AbstractCheck {
     DetailAST method;
     private int complexity = 1;
     List<Integer> listOfComplexityTokens = List.of(LITERAL_IF,LITERAL_ELSE, LITERAL_CASE, LITERAL_DEFAULT,LITERAL_FOR,LITERAL_WHILE,LITERAL_BREAK,LITERAL_CONTINUE, LITERAL_CATCH,LITERAL_FINALLY,LITERAL_THROW,LITERAL_THROWS, QUESTION,COLON);
+    //ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax)
     {
@@ -71,7 +73,7 @@ public class CyclomaticComplexityCheck extends AbstractCheck {
     }
 
     private void logDetection(DetailAST ast){
-        log(ast,"cycloComplexCheck");
+        ActionListener.actionPerformed("cycloComplexCheck");
         //log(ast, "Method complexity is higher than max allowed value (" + max + "), current("+complexity+"):"+ ast);
     }
 }

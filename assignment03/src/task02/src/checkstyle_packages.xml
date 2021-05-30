@@ -5,8 +5,8 @@
         "http://www.puppycrawl.com/dtds/packages_1_0.dtd">
 
 <checkstyle-packages>
-
-
         <package name="MethodLengthCheck"/>
-
+        <package name="CyclomaticComplexityCheck"/>
+        <package name="DepthNestingCheck"/>
+        <package name="VariablesCountCheck"/>
 </checkstyle-packages>

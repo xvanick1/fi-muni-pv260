@@ -14,6 +14,7 @@ public class VariablesCountCheck extends AbstractCheck {
     private boolean methodActive;
     DetailAST method;
     HashSet<String> variablesInMethod = new HashSet<>();
+   // ActionListener actionListener = ActionListener.getActionListener();
 
     public void setMax(int aMax) {
         this.max = aMax;
@@ -67,7 +68,7 @@ public class VariablesCountCheck extends AbstractCheck {
     }
 
     private void logDetection(DetailAST ast) {
-        log(ast,"variablesCountCheck");
+        ActionListener.actionPerformed("variablesCountCheck");
         //log(ast, "Number of variables used in method is higher than max allowed value (" + max + "), current(" + variablesInMethod.size() + "):" + ast);
     }
 }
