@@ -79,3 +79,26 @@ Rewarding our customers for finding security risks in the form of discounts on t
 ### 3. reasonable solution
 Improving our process of finding security bugs and risks.
 
+## 4. Problem
+You are quite a new developer in a team assigned to do a Code Review for your colleague. It’s your first code review, and he just added you to the code review and did not talk to you about that. You are not sure how to do the code review.
+
+### 1. possible root cause
+Insufficient training of new team member unfamiliar with team processes. Also missing training about creating code review.
+
+### 2. possible root cause
+Communication buzz/Problems in communication between other team members(Somebody was asked by other team member to be my tutor in code review, but he forgot/misunderstood/though that I know how to do it, and he does not put much effort in leading me).
+
+### 3. possible root cause
+Lack of knowledge of the project, inability to do the CR correctly.
+
+### 1. reasonable solution
+I ask my colleague to do the first Code Review with me.
+
+### 2. reasonable solution
+I read the tutorials on how to do a Code Review and look at some older CRs in the company
+- tutorial may show things and or processes which are outdated. It may be also too complicated or too abstract for my case.
+- adoption of bad habits from other CRs or old habits from older CR before new processes of reviewing were applied in the team.
+
+### 3. reasonable solution
+I will ask the project manager if he would give me time or assign a colleague to me, so I can gain knowledge about the project, processes and also CR.
+
