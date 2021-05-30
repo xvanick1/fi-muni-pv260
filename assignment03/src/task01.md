@@ -7,7 +7,7 @@ Your acceptance tests run 20 hours in CI. You cannot use CI for verification of 
 
 Inappropriately selected batch of tests. Don't need to test parts of the system which do not relate to the fix.
 - possible bug won't appear in the tests, batch of tests does not cover all the parts of the system which emergency fix applies to.
-- some tests may be dependend on/connected to more parts of the system (ex. setup method) so we have to rewrite/refactor them as we don't want them to be depended on the other parts of the system but want to use them in the batch of tests. This may lead to a new bug. This is a bad approach to the problem. We should not tailor/adapt tests to the code, but vice-versa.
+- some tests may be depended on/connected to more parts of the system (ex. setup method), so we have to rewrite/refactor them as we don't want them to be depended on the other parts of the system but want to use them in the batch of tests. This may lead to a new bug. This is a bad approach to the problem. We should not tailor/adapt tests to the code, but vice-versa.
 
 ### 2. possible root cause
 Bad architecture of the whole project and/or tests. Inefficient code - improper use of memory, break of SOLID, etc.
@@ -30,5 +30,26 @@ Use of multiple CIs (backup server where the system will run until the emergency
 ### 5. reasonable solution
 Make the tests run faster (better SW/HW or cloud - parallel processing)
 
+## 2. Problem
+Other teams (the same teams over and over again) often break your tests in CI in master and future-release branches. Most of those test failures catch real problems. You spend a lot of time on failing test investigation and teams must often solve problems not long before the release.
 
+### 1. possible root cause
+Incorrectly designed/used tests in the team that is causing the problems. Insufficient test coverage of the system in that team.
+
+### 2. possible root cause
+The problem-causing team uses different platform (than we do) on which CI for testing runs. Bugs are only discovered during testing by our team using a different platform than the other team.
+
+### 3. possible root cause
+Poorly designed interface between project modules.
+
+### 1. reasonable solution
+Audit of tests in the "problematic" team with the subsequent recommendations to fix the cause of the problem.
+
+### 2. reasonable solution
+Extension of testing environments for individual teams (multiplatform).
+
+### 3. reasonable solution
+Redesign of the interface between project modules.
+- chance of creating new bugs in the implementation
+- need of big and complicated modification (not just in the interface). This is costly, more work has to be done and also, there's a need for more testers.
 
